@@ -1,0 +1,61 @@
+﻿/////////////////////////////////////////////////////////////////////////////
+La applicazione concede l’ACCESSO solo ai dipendenti dell’hotel per mezzo di:
+-Username,
+-Password.
+
+
+//////////////////////////////
+I CLIENTI sono individuati da: 
+-Nome, 
+-Cognome, 
+-CF, 
+-Email, 
+-Telefono,
+-Cellulare. 
+-Città, 
+-Provincia, 
+Ogni camera è individuata da:
+-NumeroCamera, 
+-Descrizione,
+-Tipologia (singola, doppia).
+
+
+/////////////////////////////////////////////////////////////////////////
+La PRENOTAZIONE effettuata da un cliente si riferisce ad una sola camera. 
+Per ogni prenotazione si deve memorizzare:
+-DataPrenotazione, 
+-NumProgressivo,
+-Anno, 
+-SoggiornoDal,
+-SoggiornoAl,
+-Caparra,
+-Tariffa,
+-Pensione(mezza pensione / pensione completa / pernottamento con prima colazione).
+
+
+//////////////////////////////////////////////////////////////////
+Durante il soggiorno, possono essere richiesti SERVIZI AGGIUNTIVI:
+-Colazione in camera, 
+-Mini bar, 
+-Internet, 
+-Letto aggiuntivo, 
+-Culla. 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+Questi servizi dovranno di volta in volta essere caricati a sistema e relazionati alla prenotazione. 
+Per ogni servizio è memorizzata:
+-Data, 
+-Quantità,
+-Prezzo.
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+All’atto del checkout, il concierge della reception, deve poter stampare l’intero dettaglio della prenotazione:
+-Il numero di stanza, il periodo, la tariffa applicata
+-La lista di tutti i servizi aggiuntivi richiesti durante il soggiorno,
+-L’importo da saldare (tariffa – caparra + somma di tutti i servizi aggiuntivi).
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+La applicazione per mezzo di una pagina che consente interrogazioni asincrone a sistema, deve poter:
+-Ricercare le prenotazioni effettuate da un cliente in base al codice fiscale,
+-Ricercare il numero totale di prenotazioni per i soggiorni di tipo “pensione completa”.
