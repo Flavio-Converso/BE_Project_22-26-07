@@ -1,5 +1,5 @@
 ﻿/////////////////////////////////////////////////////////////////////////////
-La applicazione concede l’ACCESSO solo ai dipendenti dell’hotel per mezzo di:
+La applicazione concede l’ACCESSO solo ai DIPENDENTI dell’hotel per mezzo di:
 -Username,
 -Password.
 
@@ -14,7 +14,8 @@ I CLIENTI sono individuati da:
 -Cellulare. 
 -Città, 
 -Provincia, 
-Ogni camera è individuata da:
+/////////////////////////////
+Ogni CAMERA è individuata da:
 -NumeroCamera, 
 -Descrizione,
 -Tipologia (singola, doppia).
@@ -42,7 +43,7 @@ Durante il soggiorno, possono essere richiesti SERVIZI AGGIUNTIVI:
 -Culla. 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 Questi servizi dovranno di volta in volta essere caricati a sistema e relazionati alla prenotazione. 
-Per ogni servizio è memorizzata:
+Per ogni SERVIZIOAGG è memorizzata:
 -Data, 
 -Quantità,
 -Prezzo.
@@ -57,12 +58,12 @@ All’atto del checkout, il concierge della reception, deve poter stampare l’i
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 La applicazione per mezzo di una pagina che consente interrogazioni asincrone a sistema, deve poter:
--Ricercare le prenotazioni effettuate da un cliente in base al codice fiscale,
--Ricercare il numero totale di prenotazioni per i soggiorni di tipo “pensione completa”.
+-Ricercare le prenotazioni effettuate da un cliente in base al CODICE FISCALE,
+-Ricercare il numero totale di prenotazioni per i soggiorni di tipo “PENSIONE COMPLETA”.
 
 /////
 TODO:
-//////////usare antiforgerytoken (slide 22/07)//////////
+//////////USARE -> ANTIFORGERYTOKEN (slide 22/07)//////////
 todo 23/07:
 -riempimento tabella camere / altri dati di prova
 -riempimento tabella utenti (1 solo user è sufficiente)
@@ -84,4 +85,4 @@ todo 26/07:
 -css
 
 todo extra: 
--cryptaggio password
+-cryptaggio password (Considera l'uso di ASP.NET Identity o un'altra libreria per la gestione degli utenti e delle sessioni.)
