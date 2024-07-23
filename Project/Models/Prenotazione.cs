@@ -10,7 +10,7 @@
         public DateTime SoggiornoAl { get; set; }
         public decimal Caparra { get; set; }
         public decimal Tariffa { get; set; }
-        public string PensioneCompleta { get; set; }
+        public string TipoPensione { get; set; }
         public int IdPersona { get; set; }
         public int IdCamera { get; set; }
     }

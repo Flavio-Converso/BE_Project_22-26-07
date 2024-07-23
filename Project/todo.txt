@@ -59,3 +59,10 @@ All’atto del checkout, il concierge della reception, deve poter stampare l’i
 La applicazione per mezzo di una pagina che consente interrogazioni asincrone a sistema, deve poter:
 -Ricercare le prenotazioni effettuate da un cliente in base al codice fiscale,
 -Ricercare il numero totale di prenotazioni per i soggiorni di tipo “pensione completa”.
+
+
+
+todo 23/07:
+-registrazione / login
+-form ricerca per CF
+-form ricerca per tipo di soggiorno "pensione completa"
