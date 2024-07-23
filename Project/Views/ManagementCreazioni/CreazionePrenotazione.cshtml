@@ -8,28 +8,28 @@
 
 <form asp-action="CreazionePrenotazione" method="post">
     @Html.AntiForgeryToken()
-   
+
     <div class="form-group">
         <label asp-for="SoggiornoDal" class="control-label"></label>
-        <input asp-for="SoggiornoDal" class="form-control" />
+        <input asp-for="SoggiornoDal" class="form-control" type="date" />
         <span asp-validation-for="SoggiornoDal" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="SoggiornoAl" class="control-label"></label>
-        <input asp-for="SoggiornoAl" class="form-control" />
+        <input asp-for="SoggiornoAl" class="form-control" type="date" />
         <span asp-validation-for="SoggiornoAl" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Caparra" class="control-label"></label>
-        <input asp-for="Caparra" class="form-control" />
+        <input asp-for="Caparra" class="form-control" type="number" step="0.01" />
         <span asp-validation-for="Caparra" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Tariffa" class="control-label"></label>
-        <input asp-for="Tariffa" class="form-control" />
+        <input asp-for="Tariffa" class="form-control" type="number" step="0.01" />
         <span asp-validation-for="Tariffa" class="text-danger"></span>
     </div>
 

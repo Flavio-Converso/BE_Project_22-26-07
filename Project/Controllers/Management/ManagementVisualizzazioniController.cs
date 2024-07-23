@@ -12,15 +12,15 @@ namespace Project.Controllers.Management
         {
             _visualizzaCreazioniService = visualizzaCreazioniService;
         }
-        public IActionResult VisualizzaCamere()
-        {
-            var camere = _visualizzaCreazioniService.GetAllCamere();
-            return View(camere);
-        }
         public IActionResult VisualizzaPersone()
         {
             var persone = _visualizzaCreazioniService.GetAllPersone();
             return View(persone);
+        }
+        public IActionResult VisualizzaCamere()
+        {
+            var camere = _visualizzaCreazioniService.GetAllCamere();
+            return View(camere);
         }
         public IActionResult VisualizzaPrenotazioni()
         {

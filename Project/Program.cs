@@ -1,12 +1,16 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Project.Controllers.Management;
+using Microsoft.AspNetCore.Mvc;
 using Project.Services.Auth;
 using Project.Services.Management;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    
+    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+});
 
 //AUTH
 builder.Services

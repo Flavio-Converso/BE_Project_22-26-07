@@ -12,7 +12,7 @@
     [IdCamera]         INT             NOT NULL,
     PRIMARY KEY CLUSTERED ([IdPrenotazione] ASC),
     FOREIGN KEY ([IdPersona]) REFERENCES [dbo].[Persone] ([IdPersona]),
-    FOREIGN KEY ([IdCamera]) REFERENCES [dbo].[Camere] ([IdCamera]),
-    CHECK ([TipoPensione]='Prima Colazione' OR [TipoPensione]='Pensione Completa' OR [TipoPensione]='Mezza Pensione')
+    CHECK ([TipoPensione]='Prima Colazione' OR [TipoPensione]='Pensione Completa' OR [TipoPensione]='Mezza Pensione'),
+    CONSTRAINT [CHK_SoggiornoDates] CHECK ([SoggiornoAl]>[SoggiornoDal])
 );
 

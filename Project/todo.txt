@@ -63,7 +63,7 @@ La applicazione per mezzo di una pagina che consente interrogazioni asincrone a 
 
 /////
 TODO:
-//////////USARE -> ANTIFORGERYTOKEN (slide 22/07)//////////
+//////////USARE -> ANTIFORGERYTOKEN (slide 22/07)//////////	     da controllare ovunque (fino al 23-07 FATTO)
 todo 23/07:
 -riempimento tabella camere / altri dati di prova						@@@@@@@@@FATTO@@@@@@@@@ 
 -riempimento tabella utenti (1 solo user è sufficiente)					@@@@@@@@@FATTO@@@@@@@@@
@@ -87,4 +87,4 @@ todo 26/07:
 -css
 
 todo extra: 
--cryptaggio password (Considera l'uso di ASP.NET Identity o un'altra libreria per la gestione degli utenti e delle sessioni.)
+-cryptaggio password												    @@@@@@@@@FATTO@@@@@@@@@ 

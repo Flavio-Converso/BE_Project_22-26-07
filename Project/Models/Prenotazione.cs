@@ -11,10 +11,10 @@ namespace Project.Models
         [Required]
         public DateTime DataPrenotazione { get; set; }
 
-        [Required]
+    
         public int NumProgressivo { get; set; }
 
-        [Required]
+     
         public int Anno { get; set; }
 
         [Required]

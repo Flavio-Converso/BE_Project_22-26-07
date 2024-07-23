@@ -137,7 +137,9 @@ namespace Project.Services.Management
                     command.Parameters.AddWithValue("@SoggiornoAl", prenotazione.SoggiornoAl);
                     command.Parameters.AddWithValue("@Caparra", prenotazione.Caparra);
                     command.Parameters.AddWithValue("@Tariffa", prenotazione.Tariffa);
-                    command.Parameters.AddWithValue("@TipoPensione", prenotazione.TipoPensione ?? (object)DBNull.Value);
+
+                    // Converti l'enum in stringa per il parametro TipoPensione
+                    command.Parameters.AddWithValue("@TipoPensione", prenotazione.TipoPensione.ToString() ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@IdPersona", prenotazione.IdPersona);
                     command.Parameters.AddWithValue("@IdCamera", prenotazione.IdCamera);
                 });
