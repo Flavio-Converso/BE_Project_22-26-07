@@ -14,6 +14,10 @@ namespace Project.Services.Manage
 
         private const string GET_ALL_PERSONE_COMMAND =
             "SELECT IdPersona, Nome, Cognome, CF, Email, Telefono, Cellulare, Città, Provincia FROM [dbo].[Persone]";
+        
+        private const string GET_ALL_PRENOTAZIONI_COMMAND =
+    "SELECT IdPrenotazione, DataPrenotazione, NumProgressivo, Anno, SoggiornoDal, SoggiornoAl, Caparra, Tariffa, TipoPensione, IdPersona, IdCamera " +
+    "FROM [dbo].[Prenotazioni]";
 
         private readonly ILogger<VisualizzaCreazioniService> _logger;
 
@@ -71,5 +75,34 @@ namespace Project.Services.Manage
                 throw new Exception("Si è verificato un errore inatteso. Riprova più tardi.");
             }
         }
+        public List<Prenotazione> GetAllPrenotazioni()
+        {
+            try
+            {
+                return ExecuteReader(
+                    GET_ALL_PRENOTAZIONI_COMMAND,
+                    command => { /* Nessun parametro aggiuntivo */ },
+                    reader => new Prenotazione
+                    {
+                        IdPrenotazione = reader.GetInt32(0),
+                        DataPrenotazione = reader.GetDateTime(1),
+                        NumProgressivo = reader.GetInt32(2),
+                        Anno = reader.GetInt32(3),
+                        SoggiornoDal = reader.GetDateTime(4),
+                        SoggiornoAl = reader.GetDateTime(5),
+                        Caparra = reader.GetDecimal(6),
+                        Tariffa = reader.GetDecimal(7),
+                        TipoPensione = reader.IsDBNull(8) ? null : reader.GetString(8),
+                        IdPersona = reader.GetInt32(9),
+                        IdCamera = reader.GetInt32(10)
+                    });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Errore durante il recupero delle prenotazioni.");
+                throw new Exception("Si è verificato un errore inatteso. Riprova più tardi.");
+            }
+        }
+
     }
 }

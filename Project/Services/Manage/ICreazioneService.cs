@@ -5,5 +5,6 @@ namespace Project.Services.Manage
     {
         Persona CreazionePersona(Persona persona); 
         Camera CreazioneCamera(Camera camera);
+        Prenotazione CreazionePrenotazione(Prenotazione prenotazione);
     }
 }

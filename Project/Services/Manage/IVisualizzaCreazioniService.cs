@@ -4,7 +4,8 @@ namespace Project.Services.Manage
 {
     public interface IVisualizzaCreazioniService
     {
-        List<Camera> GetAllCamere();
-        List<Persona> GetAllPersone();
+        List<Camera> GetAllCamere(); //FATTO
+        List<Persona> GetAllPersone(); //FATTO
+        List<Prenotazione> GetAllPrenotazioni(); //DA FARE
     }
 }

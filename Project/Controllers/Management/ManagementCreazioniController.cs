@@ -38,7 +38,7 @@ namespace Project.Controllers.Management
             try
             {
                 var createdPersona = _creazioneService.CreazionePersona(persona);
-                return RedirectToAction("RoutingCreazioni", "Manage");
+                return RedirectToAction("Management", "Home");
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace Project.Controllers.Management
             try
             {
                 var createdCamera = _creazioneService.CreazioneCamera(camera);
-                return RedirectToAction("RoutingCreazioni", "Manage");
+                return RedirectToAction("Management", "Home");
             }
             catch (Exception ex)
             {
@@ -77,6 +77,34 @@ namespace Project.Controllers.Management
                 return View(camera);
             }
         }
-        
+
+        // GET: /Manage/CreazionePrenotazione
+        public IActionResult CreazionePrenotazione()
+        {
+            return View();
+        }
+
+        // POST: /Manage/CreazionePrenotazione
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreazionePrenotazione(Prenotazione prenotazione)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(prenotazione);
+            }
+
+            try
+            {
+                var createdPrenotazione = _creazioneService.CreazionePrenotazione(prenotazione);
+                return RedirectToAction("Management", "Home"); 
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Errore durante la creazione della prenotazione.");
+                ModelState.AddModelError(string.Empty, "Si è verificato un errore. Riprova più tardi.");
+                return View(prenotazione);
+            }
+        }
     }
 }

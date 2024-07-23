@@ -2,7 +2,7 @@
 
 public abstract class BaseService
 {
-    private readonly string _connectionString;
+    protected readonly string _connectionString;
 
     protected BaseService(string connectionString)
     {

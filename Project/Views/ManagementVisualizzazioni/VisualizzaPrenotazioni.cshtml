@@ -1,0 +1,43 @@
+﻿@model List<Project.Models.Prenotazione>
+
+@{
+    ViewData["Title"] = "Visualizza Prenotazioni";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>IdPrenotazione</th>
+            <th>DataPrenotazione</th>
+            <th>NumProgressivo</th>
+            <th>Anno</th>
+            <th>SoggiornoDal</th>
+            <th>SoggiornoAl</th>
+            <th>Caparra</th>
+            <th>Tariffa</th>
+            <th>TipoPensione</th>
+            <th>IdPersona</th>
+            <th>IdCamera</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prenotazione in Model)
+        {
+            <tr>
+                <td>@prenotazione.IdPrenotazione</td>
+                <td>@prenotazione.DataPrenotazione.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                <td>@prenotazione.NumProgressivo</td>
+                <td>@prenotazione.Anno</td>
+                <td>@prenotazione.SoggiornoDal.ToString("yyyy-MM-dd")</td>
+                <td>@prenotazione.SoggiornoAl.ToString("yyyy-MM-dd")</td>
+                <td>@prenotazione.Caparra.ToString("C")</td>
+                <td>@prenotazione.Tariffa.ToString("C")</td>
+                <td>@prenotazione.TipoPensione</td>
+                <td>@prenotazione.IdPersona</td>
+                <td>@prenotazione.IdCamera</td>
+            </tr>
+        }
+    </tbody>
+</table>

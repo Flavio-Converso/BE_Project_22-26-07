@@ -1,0 +1,71 @@
+﻿@model Project.Models.Prenotazione
+
+@{
+    ViewData["Title"] = "Creazione Prenotazione";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="CreazionePrenotazione" method="post">
+    @Html.AntiForgeryToken()
+   
+
+   
+
+    <div class="form-group">
+        <label asp-for="SoggiornoDal" class="control-label"></label>
+        <input asp-for="SoggiornoDal" class="form-control" />
+        <span asp-validation-for="SoggiornoDal" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SoggiornoAl" class="control-label"></label>
+        <input asp-for="SoggiornoAl" class="form-control" />
+        <span asp-validation-for="SoggiornoAl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Caparra" class="control-label"></label>
+        <input asp-for="Caparra" class="form-control" />
+        <span asp-validation-for="Caparra" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Tariffa" class="control-label"></label>
+        <input asp-for="Tariffa" class="form-control" />
+        <span asp-validation-for="Tariffa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TipoPensione" class="control-label"></label>
+        <select asp-for="TipoPensione" class="form-control">
+            <option value="">Seleziona Tipo Pensione</option>
+            <option value="Prima Colazione">Prima Colazione</option>
+            <option value="Mezza Pensione">Mezza Pensione</option>
+            <option value="Pensione Completa">Pensione Completa</option>
+        </select>
+        <span asp-validation-for="TipoPensione" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IdPersona" class="control-label"></label>
+        <input asp-for="IdPersona" class="form-control" />
+        <span asp-validation-for="IdPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IdCamera" class="control-label"></label>
+        <input asp-for="IdCamera" class="form-control" />
+        <span asp-validation-for="IdCamera" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crea Prenotazione" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

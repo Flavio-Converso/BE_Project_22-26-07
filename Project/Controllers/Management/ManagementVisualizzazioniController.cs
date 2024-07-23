@@ -22,5 +22,11 @@ namespace Project.Controllers.Management
             var persone = _visualizzaCreazioniService.GetAllPersone();
             return View(persone);
         }
+        public IActionResult VisualizzaPrenotazioni()
+        {
+            var prenotazioni = _visualizzaCreazioniService.GetAllPrenotazioni();
+            return View(prenotazioni);
+        }
+
     }
 }
