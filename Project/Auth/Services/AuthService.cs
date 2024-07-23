@@ -1,5 +1,4 @@
-﻿using System.Data.SqlClient;
-using Project.Auth.Models;
+﻿
 using System.Security.Cryptography;
 using System.Text;
 

@@ -65,7 +65,7 @@ La applicazione per mezzo di una pagina che consente interrogazioni asincrone a 
 TODO:
 //////////USARE -> ANTIFORGERYTOKEN (slide 22/07)//////////
 todo 23/07:
--riempimento tabella camere / altri dati di prova 
+-riempimento tabella camere / altri dati di prova						@@@@@@@@@FATTO@@@@@@@@@
 -riempimento tabella utenti (1 solo user è sufficiente)					@@@@@@@@@FATTO@@@@@@@@@
 -registrazione / login													@@@@@@@@@FATTO@@@@@@@@@
 -form ricerca per CF (authorize)
