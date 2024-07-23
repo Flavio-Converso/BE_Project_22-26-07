@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Project.Auth.Services;
+using Project.Controllers.Management;
+using Project.Services.Auth;
+using Project.Services.Manage;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +18,9 @@ builder.Services
 
 //SERVIZI
 builder.Services
-    .AddScoped<IAuthService, AuthService>();
+    .AddScoped<IAuthService, AuthService>()
+    .AddScoped<ICreazioneService, CreazioneService>()
+    .AddScoped<IVisualizzaCreazioniService, VisualizzaCreazioniService>();
 
 var app = builder.Build();
 

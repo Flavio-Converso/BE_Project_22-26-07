@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Project.Models.Persona>
+
+<h2>Persone</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>CF</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Cellulare</th>
+            <th>Città</th>
+            <th>Provincia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var persona in Model)
+        {
+            <tr>
+                <td>@persona.IdPersona</td>
+                <td>@persona.Nome</td>
+                <td>@persona.Cognome</td>
+                <td>@persona.CF</td>
+                <td>@persona.Email</td>
+                <td>@persona.Telefono</td>
+                <td>@persona.Cellulare</td>
+                <td>@persona.Città</td>
+                <td>@persona.Provincia</td>
+            </tr>
+        }
+    </tbody>
+</table>

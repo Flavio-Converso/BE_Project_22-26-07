@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Project.Models.Camera>
+
+<h2>Camere</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Numero</th>
+            <th>Descrizione</th>
+            <th>Tipologia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var camera in Model)
+        {
+            <tr>
+                <td>@camera.IdCamera</td>
+                <td>@camera.NumeroCamera</td>
+                <td>@camera.Descrizione</td>
+                <td>@camera.Tipologia</td>
+            </tr>
+        }
+    </tbody>
+</table>

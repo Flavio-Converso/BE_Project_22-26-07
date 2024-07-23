@@ -22,7 +22,7 @@ public abstract class BaseService
         }
     }
 
-    protected List<T> ExecuteReader<T>(string commandText, Action<SqlCommand> parameterAction, Func<SqlDataReader, T> readAction)
+    protected List<T> ExecuteReader<T>(string commandText, Action<SqlCommand> parameterAction, Func<SqlDataReader, T> ?readAction)
     {
         var result = new List<T>();
         using (var connection = new SqlConnection(_connectionString))

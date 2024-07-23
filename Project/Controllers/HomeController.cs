@@ -1,4 +1,5 @@
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Project.Models;
 using System.Diagnostics;
@@ -19,8 +20,11 @@ namespace Project.Controllers
         {
             return View();
         }
-
-    
+        [Authorize]
+        public IActionResult Management()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

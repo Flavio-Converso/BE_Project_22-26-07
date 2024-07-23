@@ -65,14 +65,16 @@ La applicazione per mezzo di una pagina che consente interrogazioni asincrone a 
 TODO:
 //////////USARE -> ANTIFORGERYTOKEN (slide 22/07)//////////
 todo 23/07:
--riempimento tabella camere / altri dati di prova						@@@@@@@@@FATTO@@@@@@@@@
+-riempimento tabella camere / altri dati di prova						@@@@@@@@@FATTO@@@@@@@@@ 
 -riempimento tabella utenti (1 solo user è sufficiente)					@@@@@@@@@FATTO@@@@@@@@@
--registrazione / login													@@@@@@@@@FATTO@@@@@@@@@
--form ricerca per CF (authorize)
+-registrazione / login										@@@@@@@@@FATTO@@@@@@@@@ //gestione errori da fare//
+-form creazione cliente (authorize)							@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
+-form creazione persone (authorize)							@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
 -form ricerca per tipo di soggiorno "pensione completa" (authorize)
 
 todo 24/07:
--form creazione prenotazione (authenticated)
+-form creazione prenotazione (authorize)	
+-form ricerca per CF (authorize)
 -form aggiunta serviziAgg alla prenotazione esistente (authorize)
 -css
 

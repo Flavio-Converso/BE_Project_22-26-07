@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Project.Auth.Models;
-using Project.Auth.Services;
+using Project.Models.Auth;
+using Project.Services.Auth;
 using System.Security.Claims;
 
 namespace Project.Controllers

@@ -1,4 +1,4 @@
-﻿namespace Project.Auth
+﻿namespace Project.Models.Auth
 {
     public class Utente
     {

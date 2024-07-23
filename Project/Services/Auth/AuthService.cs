@@ -1,8 +1,9 @@
 ﻿
 using System.Security.Cryptography;
 using System.Text;
+using Project.Models.Auth;
 
-namespace Project.Auth.Services
+namespace Project.Services.Auth
 {
     public class AuthService : BaseService, IAuthService
     {
@@ -40,13 +41,13 @@ namespace Project.Auth.Services
                     {
                         IdUtente = reader.GetInt32(0),
                         Username = reader.GetString(1),
-                        Password = password 
+                        Password = password
                     };
                 });
 
                 return users.FirstOrDefault();
             }
-         
+
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Si è verificato un errore inatteso durante il tentativo di login.");
@@ -67,12 +68,12 @@ namespace Project.Auth.Services
 
                 return new Utente
                 {
-                    IdUtente = (int)userId, 
+                    IdUtente = (int)userId,
                     Username = username,
                     Password = hashedPassword
                 };
             }
-         
+
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Si è verificato un errore inatteso durante la registrazione dell'utente.");

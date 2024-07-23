@@ -1,5 +1,6 @@
-﻿
-namespace Project.Auth.Services
+﻿using Project.Models.Auth;
+
+namespace Project.Services.Auth
 {
     public interface IAuthService
     {
