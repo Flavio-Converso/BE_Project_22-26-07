@@ -1,11 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿
 using Project.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 
-namespace Project.Services.Manage
+
+namespace Project.Services.Management
 {
     public class VisualizzaCreazioniService : BaseService, IVisualizzaCreazioniService
     {

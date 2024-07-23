@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Project.Services.Manage;
+using Project.Services.Management;
 
 namespace Project.Controllers.Management
 {

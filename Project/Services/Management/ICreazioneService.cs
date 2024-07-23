@@ -1,5 +1,5 @@
 ﻿using Project.Models;
-namespace Project.Services.Manage
+namespace Project.Services.Management
 {
     public interface ICreazioneService
     {

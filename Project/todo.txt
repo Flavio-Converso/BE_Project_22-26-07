@@ -70,12 +70,12 @@ todo 23/07:
 -registrazione / login										@@@@@@@@@FATTO@@@@@@@@@ //gestione errori da fare//
 -form creazione cliente (authorize)							@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
 -form creazione persone (authorize)							@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
--form creazione prenotazione (authorize)	
+-form creazione prenotazione (authorize)					@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
 
 todo 24/07:
+-form aggiunta serviziAgg alla prenotazione esistente (authorize) @@@(FORSE TRAMITE PAGINA DETTAGLIO PRENOTAZIONE ? DA VEDERE)@@@
 -form ricerca per tipo di soggiorno "pensione completa" (authorize)
 -form ricerca per CF (authorize)
--form aggiunta serviziAgg alla prenotazione esistente (authorize)
 -css
 
 todo 25/07:

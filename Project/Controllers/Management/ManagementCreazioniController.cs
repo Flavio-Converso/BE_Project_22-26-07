@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Project.Models;
-using Project.Services.Manage;
+using Project.Services.Management;
 
 namespace Project.Controllers.Management
 {

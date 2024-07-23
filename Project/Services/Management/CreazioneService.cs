@@ -1,10 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿
 using Project.Models;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Project.Services.Manage
+namespace Project.Services.Management
 {
     public class CreazioneService : BaseService, ICreazioneService
     {
@@ -19,9 +18,9 @@ namespace Project.Services.Manage
             "VALUES (@NumeroCamera, @Descrizione, @Tipologia)";
 
         private const string CREAZIONE_PRENOTAZIONE_COMMAND = "INSERT INTO [dbo].[Prenotazioni] " +
-     "(DataPrenotazione, NumProgressivo, Anno, SoggiornoDal, SoggiornoAl, Caparra, Tariffa, TipoPensione, IdPersona, IdCamera) " +
-     "OUTPUT INSERTED.IdPrenotazione " +
-     "VALUES (@DataPrenotazione, @NumProgressivo, @Anno, @SoggiornoDal, @SoggiornoAl, @Caparra, @Tariffa, @TipoPensione, @IdPersona, @IdCamera)";
+            "(DataPrenotazione, NumProgressivo, Anno, SoggiornoDal, SoggiornoAl, Caparra, Tariffa, TipoPensione, IdPersona, IdCamera) " +
+            "OUTPUT INSERTED.IdPrenotazione " +
+            "VALUES (@DataPrenotazione, @NumProgressivo, @Anno, @SoggiornoDal, @SoggiornoAl, @Caparra, @Tariffa, @TipoPensione, @IdPersona, @IdCamera)";
 
         private const string GET_NEXT_NUM_PROGRESSIVO_COMMAND = "GetNextNumProgressivo";
 

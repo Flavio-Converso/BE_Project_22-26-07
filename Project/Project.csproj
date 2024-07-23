@@ -10,6 +10,7 @@
     <Folder Include="ServicesModels\" />
     <Folder Include="SQL\Queries\" />
     <Folder Include="SQL\Tables\" />
+    <Folder Include="Views\ManagementRicerche\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
