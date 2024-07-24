@@ -39,9 +39,33 @@ html {
 body {
 	margin-bottom: 60px;
 	background-color: #ffab5e;
+	
+	
 }
 
 a, a:hover {
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none !important;
+    color: inherit !important;
+}
+.footer {
+	line-height: 40px !important;
+}
+.footer {
+	border-top: 2px solid #23425f;
+	padding-top:15px
+}
+.col-2 > ul > li > a, .anno{
+	    color: #23425f !important;
+
+
+}
+.col-2 > ul > li > a:hover {
+		color: #a64942 !important;
+	}
+.container-footer > .row {
+	border-bottom: 1px solid #23425f;
+	margin-bottom:20px
+}
+footer{
+	height: 10%;
 }
