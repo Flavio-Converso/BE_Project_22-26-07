@@ -28,13 +28,22 @@ namespace Project.Controllers
             if (string.IsNullOrWhiteSpace(codiceFiscale))
             {
                 ModelState.AddModelError("", "Il codice fiscale non può essere nullo o vuoto.");
-                return View();
+                return View("RicercaByCF"); // Ritorna alla pagina di ricerca
             }
 
             try
             {
                 var prenotazioni = await _ricercheService.GetPrenotazioniByCFAsync(codiceFiscale);
-                return View("RisultatiByCF", prenotazioni);
+
+                if (prenotazioni != null && prenotazioni.Any())
+                {
+                    // Invia una risposta JSON con l'URL della pagina dei risultati
+                    return Json(new { redirectUrl = Url.Action("RisultatiByCF", "ManagementRicerche", new { codiceFiscale }) });
+                }
+                else
+                {
+                    return Json(new { redirectUrl = Url.Action("RisultatiByCF", "ManagementRicerche", new { codiceFiscale }) });
+                }
             }
             catch
             {
@@ -42,5 +51,24 @@ namespace Project.Controllers
             }
         }
 
+        [HttpGet("RisultatiByCF")]
+        public async Task<IActionResult> RisultatiByCF(string codiceFiscale)
+        {
+            if (string.IsNullOrWhiteSpace(codiceFiscale))
+            {
+                return RedirectToAction("RicercaByCF");
+            }
+
+            try
+            {
+                var prenotazioni = await _ricercheService.GetPrenotazioniByCFAsync(codiceFiscale);
+                return View(prenotazioni);
+            }
+            catch
+            {
+                return StatusCode(500, "Errore interno del server.");
+            }
+        }
     }
+
 }

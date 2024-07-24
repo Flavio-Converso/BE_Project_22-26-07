@@ -1,4 +1,23 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿$(document).ready(function () {
+    $('#searchForm').submit(function (event) {
+        event.preventDefault(); 
 
-// Write your JavaScript code.
+        var form = $(this);
+        var url = form.attr('action');
+        var data = form.serialize(); 
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            success: function (response) {
+                if (response.redirectUrl) {
+                    window.location.href = response.redirectUrl; 
+                }
+            },
+            error: function () {
+                alert('Si è verificato un errore. Per favore, riprova.');
+            }
+        });
+    });
+});

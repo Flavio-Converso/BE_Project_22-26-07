@@ -1,14 +1,22 @@
-﻿    @{
-        ViewData["Title"] = "Cerca Prenotazioni";
-    }
+﻿@model Project.Models.MyViewModels.RicercaPrenotazioneByCFViewModel
+@{
+    ViewData["Title"] = "Cerca Prenotazioni";
+}
 
-    <h1>@ViewData["Title"]</h1>
+<h1>@ViewData["Title"]</h1>
 
-<form method="post" action="@Url.Action("RicercaByCf", "ManagementRicerche")">
+<form id="searchForm" method="post" action="@Url.Action("RicercaByCF", "ManagementRicerche")">
     @Html.AntiForgeryToken()
-        <div class="form-group">
-            <label for="codiceFiscale">Codice Fiscale:</label>
-            <input type="text" id="codiceFiscale" name="codiceFiscale" class="form-control" />
-        </div>
-        <button type="submit" class="btn btn-primary">Cerca</button>
-    </form>
+    <div class="form-group">
+        <label asp-for="codiceFiscale" class="control-label">Codice Fiscale</label>
+        <input asp-for="codiceFiscale" class="form-control" />
+        <span asp-validation-for="codiceFiscale" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Cerca</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
