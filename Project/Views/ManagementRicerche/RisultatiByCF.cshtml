@@ -1,0 +1,50 @@
+﻿@model List<Project.Models.Prenotazione>
+
+@{
+    ViewData["Title"] = "Risultati della Ricerca";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID Prenotazione</th>
+                <th>Data Prenotazione</th>
+                <th>Num Progressivo</th>
+                <th>Anno</th>
+                <th>Soggiorno Dal</th>
+                <th>Soggiorno Al</th>
+                <th>Caparra</th>
+                <th>Tariffa</th>
+                <th>Tipo Pensione</th>
+                <th>ID Persona</th>
+                <th>ID Camera</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prenotazione in Model)
+            {
+                <tr>
+                    <td>@prenotazione.IdPrenotazione</td>
+                    <td>@prenotazione.DataPrenotazione.ToShortDateString()</td>
+                    <td>@prenotazione.NumProgressivo</td>
+                    <td>@prenotazione.Anno</td>
+                    <td>@prenotazione.SoggiornoDal.ToShortDateString()</td>
+                    <td>@prenotazione.SoggiornoAl.ToShortDateString()</td>
+                    <td>@prenotazione.Caparra</td>
+                    <td>@prenotazione.Tariffa</td>
+                    <td>@prenotazione.TipoPensione</td>
+                    <td>@prenotazione.IdPersona</td>
+                    <td>@prenotazione.IdCamera</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nessun risultato trovato.</p>
+}

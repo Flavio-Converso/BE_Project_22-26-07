@@ -24,7 +24,8 @@ builder.Services
 builder.Services
     .AddScoped<IAuthService, AuthService>()
     .AddScoped<ICreazioneService, CreazioneService>()
-    .AddScoped<IVisualizzaCreazioniService, VisualizzaCreazioniService>();
+    .AddScoped<IVisualizzaCreazioniService, VisualizzaCreazioniService>()
+    .AddScoped<IRicercheService, RicercheService>();
 
 var app = builder.Build();
 
@@ -47,5 +48,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "Management",
+    pattern: "Management/{controller=RicercaByCF}/{action=RicercaByCF}/{id?}");
 
 app.Run();
