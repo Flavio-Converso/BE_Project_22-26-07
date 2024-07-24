@@ -38,5 +38,7 @@ namespace Project.Models
 
         [StringLength(2, ErrorMessage = "La provincia può contenere al massimo 2 caratteri.")]
         public string Provincia { get; set; }
+
+        public List<Prenotazione> Prenotazioni { get; set; } = new List<Prenotazione>();
     }
 }
