@@ -11,7 +11,7 @@ namespace Project.Services.Management
 
         private const string GET_ALL_PERSONE_COMMAND =
             "SELECT IdPersona, Nome, Cognome, CF, Email, Telefono, Cellulare, Città, Provincia FROM [dbo].[Persone]";
-        
+
         private const string GET_ALL_PRENOTAZIONI_COMMAND =
     "SELECT IdPrenotazione, DataPrenotazione, NumProgressivo, Anno, SoggiornoDal, SoggiornoAl, Caparra, Tariffa, TipoPensione, IdPersona, IdCamera " +
     "FROM [dbo].[Prenotazioni]";

@@ -53,7 +53,7 @@ namespace Project.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
                 return RedirectToAction("Index", "Home");
             }
-            
+
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Registration failed.");
@@ -107,7 +107,7 @@ namespace Project.Controllers
             }
         }
 
-       
+
 
         // GET: /Account/Logout
         public async Task<IActionResult> Logout()

@@ -17,7 +17,7 @@ namespace Project.Controllers.Management
             _logger = logger;
         }
 
-        
+
         // GET: /Manage/Create
         public IActionResult CreazionePersona()
         {
@@ -46,7 +46,7 @@ namespace Project.Controllers.Management
                 return View(persona);
             }
         }
-        
+
 
         // GET: /Manage/CreazioneCamera
         public IActionResult CreazioneCamera()
@@ -96,7 +96,7 @@ namespace Project.Controllers.Management
             try
             {
                 var createdPrenotazione = _creazioneService.CreazionePrenotazione(prenotazione);
-                return RedirectToAction("Management", "Home"); 
+                return RedirectToAction("Management", "Home");
             }
             catch (Exception ex)
             {

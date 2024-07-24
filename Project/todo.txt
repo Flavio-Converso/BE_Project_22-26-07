@@ -79,8 +79,8 @@ todo 24/07:
 -styling pagina registrazione/login
 
 todo 25/07:
--sistema di checkout / stampa dettagli prenotazione (authorize)
 -form aggiunta serviziAgg alla prenotazione esistente (authorize) @@@(FORSE TRAMITE PAGINA DETTAGLIO PRENOTAZIONE ? DA VEDERE)@@@
+-sistema di checkout / stampa dettagli prenotazione (authorize)
 -styling pagina routing ("Management")
 -styling pagina creazioni
 

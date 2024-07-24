@@ -26,7 +26,7 @@ namespace Project.Services.Management
 
         private readonly ILogger<CreazioneService> _logger;
 
-        public CreazioneService(IConfiguration configuration,  ILogger<CreazioneService> logger) : base(configuration.GetConnectionString("DB"))
+        public CreazioneService(IConfiguration configuration, ILogger<CreazioneService> logger) : base(configuration.GetConnectionString("DB"))
         {
             _logger = logger;
         }
@@ -60,9 +60,9 @@ namespace Project.Services.Management
                     Città = persona.Città,
                     Provincia = persona.Provincia
                 };
-            }      
+            }
             catch (Exception ex)
-            { 
+            {
                 _logger.LogError(ex, "Si è verificato un errore inatteso durante la creazione della persona.");
                 throw new Exception("Si è verificato un errore inatteso. Riprova più tardi.");
             }

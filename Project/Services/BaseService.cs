@@ -1,6 +1,4 @@
 ﻿using System.Data.SqlClient;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 public abstract class BaseService
 {

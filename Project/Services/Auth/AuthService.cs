@@ -1,7 +1,7 @@
 ﻿
+using Project.Models.Auth;
 using System.Security.Cryptography;
 using System.Text;
-using Project.Models.Auth;
 
 namespace Project.Services.Auth
 {
