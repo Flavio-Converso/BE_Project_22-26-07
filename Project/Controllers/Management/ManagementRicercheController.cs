@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Project.Services.Management;
 
 
 namespace Project.Controllers
 {
+    [Authorize]
     [Route("Management/[controller]")]
     public class ManagementRicercheController : Controller
     {

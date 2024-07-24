@@ -65,22 +65,25 @@ La applicazione per mezzo di una pagina che consente interrogazioni asincrone a 
 TODO:
 //////////USARE -> ANTIFORGERYTOKEN (slide 22/07)//////////	     da controllare ovunque (fino al 23-07 FATTO)
 todo 23/07:
--riempimento tabella camere / altri dati di prova						@@@@@@@@@FATTO@@@@@@@@@ 
--riempimento tabella utenti (1 solo user è sufficiente)					@@@@@@@@@FATTO@@@@@@@@@
--registrazione / login										@@@@@@@@@FATTO@@@@@@@@@ //gestione errori da fare//
--form creazione cliente (authorize)							@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
--form creazione persone (authorize)							@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
--form creazione prenotazione (authorize)					@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
+-riempimento tabella camere / altri dati di prova				@@@@@@@@@FATTO@@@@@@@@@ 
+-riempimento tabella utenti (1 solo user è sufficiente)			@@@@@@@@@FATTO@@@@@@@@@
+-registrazione / login						@@@@@@@@@FATTO@@@@@@@@@ //gestione errori da fare//
+-form creazione cliente (authorize)			@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
+-form creazione persone (authorize)			@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
+-form creazione prenotazione (authorize)	@@@@@@@@@FATTO@@@@@@@@@ //rivedere gestione form nel model e nella vista//
 
 todo 24/07:
--form aggiunta serviziAgg alla prenotazione esistente (authorize) @@@(FORSE TRAMITE PAGINA DETTAGLIO PRENOTAZIONE ? DA VEDERE)@@@
--form ricerca per tipo di soggiorno "pensione completa" (authorize)
--form ricerca per CF (authorize)
--css
+-form ricerca per CF (authorize) (ASYNC)	@@@@@@@@@FATTO@@@@@@@@@ 
+-form ricerca per tipo di soggiorno "pensione completa" (authorize) (ASYNC)
+-styling pagina home + navbar + footer
+-styling pagina registrazione/login
 
 todo 25/07:
 -sistema di checkout / stampa dettagli prenotazione (authorize)
--css
+-form aggiunta serviziAgg alla prenotazione esistente (authorize) @@@(FORSE TRAMITE PAGINA DETTAGLIO PRENOTAZIONE ? DA VEDERE)@@@
+-styling pagina routing ("Management")
+-styling pagina creazioni
+
 
 todo 26/07:
 -ritocchi finali
