@@ -27,7 +27,7 @@ namespace Project.Controllers
         // POST: /Account/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(AuthViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace Project.Controllers
         // POST: /Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(AuthViewModel model)
         {
             if (!ModelState.IsValid)
             {

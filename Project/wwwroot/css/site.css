@@ -1,5 +1,24 @@
+/* color palette
+	.first-color { 
+	background: #23425f; 
+}
+	
+.second-color { 
+	background: #a64942; 
+}
+
+.third-color { 
+	background: #ff7844; 
+}
+
+.fourth-color { 
+	background: #ffab5e; 
+}
+}*/
+
+
 html {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -18,5 +37,11 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+	margin-bottom: 60px;
+	background-color: #ffab5e;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: inherit;
 }

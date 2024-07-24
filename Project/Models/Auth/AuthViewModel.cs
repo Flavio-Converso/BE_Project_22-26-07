@@ -2,7 +2,7 @@
 
 namespace Project.Models.Auth
 {
-    public class LoginViewModel
+    public class AuthViewModel
     {
         [Required]
         [Display(Name = "Username")]

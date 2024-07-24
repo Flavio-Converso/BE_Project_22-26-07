@@ -1,0 +1,62 @@
+﻿.my-auth{
+    margin-top:150px;
+}
+
+h2 {
+  color:  #23425f !important;
+  font-weight:bold;
+}
+.auth-box {
+    border: 2px solid #23425f;
+    padding-bottom: 50px !important;
+    background-color: #ff7844;
+    border-radius: 10px;
+    box-shadow: 0 0 25px #23425f;
+}
+
+.btn {
+    background-color: #23425f !important;
+    border-color: #a64942 !important;
+    color: lemonchiffon;
+}
+    .btn:hover {
+        background-color: #a64942 !important;
+        border-color: #a64942 !important;
+        color: black !important;
+    }
+.btn:focus {
+        box-shadow:none !important;
+    }
+.btn:active {
+        transform: translateY(2px) translateX(2px)
+    }
+.auth-error {
+    color: #d11749 !important;
+    font-weight:bold !important;
+    
+}
+label {
+    color: #23425f !important;
+    font-weight:bold !important;
+    
+}
+input {
+    border-radius: 40px !important;
+    background-color: lemonchiffon !important;
+    color: #23425f !important;
+    font-weight: 400 !important;
+    
+}
+
+.form-control:focus {
+    border-color: #a64942;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+.switchPage {
+    color: #23425f !important;
+    font-weight:bold !important;
+    text-decoration:underline;
+}
+.switchPage:hover {
+    color: #a64942 !important;
+}
