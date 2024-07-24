@@ -59,7 +59,7 @@ a, a:hover {
 
 
 }
-.col-2 > ul > li > a:hover {
+div > span > a:hover {
 		color: #a64942 !important;
 	}
 .col-2 > h5 {
