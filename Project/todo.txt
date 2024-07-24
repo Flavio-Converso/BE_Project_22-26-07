@@ -75,12 +75,13 @@ todo 23/07:
 todo 24/07:
 -form ricerca per CF (authorize) (ASYNC)	@@@@@@@@@FATTO@@@@@@@@@ 
 -form ricerca per tipo di soggiorno "pensione completa" (authorize) (ASYNC)
--styling pagina home + navbar + footer
+-styling footer								@@@@@@@@@FATTO@@@@@@@@@ 
 -styling pagina registrazione/login         @@@@@@@@@FATTO@@@@@@@@@ 
 
 todo 25/07:
 -form aggiunta serviziAgg alla prenotazione esistente (authorize) @@@(FORSE TRAMITE PAGINA DETTAGLIO PRENOTAZIONE ? DA VEDERE)@@@
 -sistema di checkout / stampa dettagli prenotazione (authorize)
+-styling pagina home + navbar 
 -styling pagina routing ("Management")
 -styling pagina creazioni
 

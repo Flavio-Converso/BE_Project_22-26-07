@@ -62,6 +62,9 @@ a, a:hover {
 .col-2 > ul > li > a:hover {
 		color: #a64942 !important;
 	}
+.col-2 > h5 {
+	color: #23425f !important;
+}
 .container-footer > .row {
 	border-bottom: 1px solid #23425f;
 	margin-bottom:20px
