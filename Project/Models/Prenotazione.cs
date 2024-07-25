@@ -31,8 +31,9 @@ namespace Project.Models
         [Range(0, double.MaxValue, ErrorMessage = "Tariffa deve essere un valore positivo.")]
         public decimal Tariffa { get; set; }
 
-        [StringLength(50)]
-        [RegularExpression(@"^(Prima Colazione|Pensione Completa|Mezza Pensione)$", ErrorMessage = "Tipo Pensione non valido.")]
+        [Required(ErrorMessage = "Il tipo di pensione è richiesto.")]
+        [StringLength(50, ErrorMessage = "Il tipo di pensione non può superare i 50 caratteri.")]
+        [RegularExpression(@"^(Prima Colazione|Pensione Completa|Mezza Pensione)$", ErrorMessage = "Tipo di pensione non valido.")]
         public string TipoPensione { get; set; }
 
         [Required]

@@ -5,7 +5,7 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<form id="searchForm" method="post" action="@Url.Action("RicercaByCF", "ManagementRicerche")">
+<form id="searchByCFForm" method="post" action="@Url.Action("RicercaByCF", "ManagementRicerche")">
     @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="codiceFiscale" class="control-label">Codice Fiscale</label>

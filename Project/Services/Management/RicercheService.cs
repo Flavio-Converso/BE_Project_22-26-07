@@ -12,6 +12,11 @@ namespace Project.Services.Management
             INNER JOIN Persone per ON p.IdPersona = per.IdPersona
             WHERE per.CF = @CodiceFiscale";
 
+        private const string RICERCA_PRENOTAZIONE_BY_TIPO_PENSIONE_COMMAND = @"
+    SELECT p.*
+    FROM Prenotazioni p
+    WHERE p.TipoPensione = @TipoPensione";
+
         private readonly ILogger<RicercheService> _logger;
 
         public RicercheService(IConfiguration configuration, ILogger<RicercheService> logger)
@@ -56,6 +61,52 @@ namespace Project.Services.Management
             catch (SqlException ex)
             {
                 _logger.LogError(ex, "Errore durante l'esecuzione della query per recuperare le prenotazioni.");
+                throw;
+            }
+        }
+
+        public async Task<List<Prenotazione>> GetPrenotazioniByTipoPensioneAsync(string tipoPensione)
+        {
+            if (string.IsNullOrWhiteSpace(tipoPensione))
+            {
+                throw new ArgumentException("Il tipo di pensione non può essere nullo o vuoto.", nameof(tipoPensione));
+            }
+
+            var validPensionTypes = new HashSet<string> { "Prima Colazione", "Pensione Completa", "Mezza Pensione" };
+            if (!validPensionTypes.Contains(tipoPensione))
+            {
+                throw new ArgumentException($"Il tipo di pensione '{tipoPensione}' non è valido. I tipi validi sono: {string.Join(", ", validPensionTypes)}.");
+            }
+
+            Func<SqlDataReader, Prenotazione> readAction = reader => new Prenotazione
+            {
+                IdPrenotazione = reader.GetInt32(reader.GetOrdinal("IdPrenotazione")),
+                DataPrenotazione = reader.GetDateTime(reader.GetOrdinal("DataPrenotazione")),
+                NumProgressivo = reader.GetInt32(reader.GetOrdinal("NumProgressivo")),
+                Anno = reader.GetInt32(reader.GetOrdinal("Anno")),
+                SoggiornoDal = reader.GetDateTime(reader.GetOrdinal("SoggiornoDal")),
+                SoggiornoAl = reader.GetDateTime(reader.GetOrdinal("SoggiornoAl")),
+                Caparra = reader.GetDecimal(reader.GetOrdinal("Caparra")),
+                Tariffa = reader.GetDecimal(reader.GetOrdinal("Tariffa")),
+                TipoPensione = reader.IsDBNull(reader.GetOrdinal("TipoPensione")) ? null : reader.GetString(reader.GetOrdinal("TipoPensione")),
+                IdPersona = reader.GetInt32(reader.GetOrdinal("IdPersona")),
+                IdCamera = reader.GetInt32(reader.GetOrdinal("IdCamera"))
+            };
+
+            try
+            {
+                return await ExecuteReaderAsync(
+                    RICERCA_PRENOTAZIONE_BY_TIPO_PENSIONE_COMMAND,
+                    command =>
+                    {
+                        command.Parameters.AddWithValue("@TipoPensione", tipoPensione);
+                    },
+                    readAction
+                );
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex, "Errore durante l'esecuzione della query per recuperare le prenotazioni per tipo di pensione.");
                 throw;
             }
         }

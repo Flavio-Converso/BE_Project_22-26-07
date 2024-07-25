@@ -1,0 +1,28 @@
+﻿@model Project.Models.ViewModels.RicercaPrenotazioneByTipoPensioneViewModel
+
+@{
+    ViewData["Title"] = "Ricerca per Tipo Pensione";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form id="searchByTipoPensioneForm" method="post" asp-action="RicercaByTipoPensione">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label asp-for="TipoPensione" class="control-label">Tipo di Pensione:</label>
+        <select asp-for="TipoPensione" class="form-control">
+            <option  value="">Seleziona un tipo di pensione</option>
+            <option value="Prima Colazione">Prima Colazione</option>
+            <option value="Pensione Completa">Pensione Completa</option>
+            <option value="Mezza Pensione">Mezza Pensione</option>
+        </select>
+        <span asp-validation-for="TipoPensione" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Cerca</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

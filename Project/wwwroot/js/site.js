@@ -1,5 +1,6 @@
-﻿$(document).ready(function () {
-    $('#searchForm').submit(function (event) {
+﻿//BYCF
+$(document).ready(function () {
+    $('#searchByCFForm').submit(function (event) {
         event.preventDefault(); 
 
         var form = $(this);
@@ -17,6 +18,28 @@
             },
             error: function () {
                 alert('Si è verificato un errore. Per favore, riprova.');
+            }
+        });
+    });
+});
+
+//BYTIPOPENSIONE
+$(document).ready(function () {
+    $("#searchByTipoPensioneForm").submit(function (event) {
+        event.preventDefault();
+
+        var form = $(this);
+        $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: form.serialize(),
+            success: function (response) {
+                if (response.success) {
+                    window.location.href = response.redirectUrl; 
+                } 
+            },
+            error: function () {
+                alert("An error occurred.");
             }
         });
     });

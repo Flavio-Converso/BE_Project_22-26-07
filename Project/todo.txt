@@ -74,7 +74,7 @@ todo 23/07:
 
 todo 24/07:
 -form ricerca per CF (authorize) (ASYNC)	@@@@@@@@@FATTO@@@@@@@@@ 
--form ricerca per tipo di soggiorno "pensione completa" (authorize) (ASYNC)
+-form ricerca per tipo di soggiorno "pensione completa" (authorize) (ASYNC)  @@@@@@@@@FATTO@@@@@@@@@ 
 -styling footer								@@@@@@@@@FATTO@@@@@@@@@ 
 -styling pagina registrazione/login         @@@@@@@@@FATTO@@@@@@@@@ 
 
@@ -87,8 +87,8 @@ todo 25/07:
 
 
 todo 26/07:
--ritocchi finali
--css
+-immagine logo footer
+-placeholder nel footer
 
 todo extra: 
 -cryptaggio password												    @@@@@@@@@FATTO@@@@@@@@@ 
