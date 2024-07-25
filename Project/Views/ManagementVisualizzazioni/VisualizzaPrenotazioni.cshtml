@@ -5,7 +5,7 @@
 }
 
 <h2>@ViewData["Title"]</h2>
-
+<div class="table-container">
 <table class="table">
     <thead>
         <tr>
@@ -40,9 +40,11 @@
                 <td>@prenotazione.IdCamera</td>
 
                 <td>
-                    <a asp-controller="ManagementServiziAgg" asp-action="AddServizioAgg" asp-route-idPrenotazione="@prenotazione.IdPrenotazione" class="btn btn-info">Aggiungi servizi aggiuntivi</a>
+                        <a asp-controller="ManagementServiziAgg" asp-action="AddServizioAgg" asp-route-idPrenotazione="@prenotazione.IdPrenotazione" class="btn btnPren btn-primary">Aggiungi servizi aggiuntivi</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+</div>
+

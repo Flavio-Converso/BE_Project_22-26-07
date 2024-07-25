@@ -217,9 +217,35 @@ tbody tr:hover {
 	color: #ffffff; /* Text color on hover */
 }
 
+.table-container {
+	overflow-x: auto; /* Enables horizontal scrolling */
+	margin: 20px;
+	border: 1px solid #23425f; /* Border color for container */
+}
 h2{
 	color:  #23425f !important;
     font-weight:bold !important;
     text-align: center;
     font-size:3em;
 }
+
+
+.btnPren {
+	background-color: #23425f !important;
+	border-color: #a64942 !important;
+	color: lemonchiffon;
+}
+
+	.btnPren:hover {
+		background-color: #ff7844 !important;
+		border-color: #a64942 !important;
+		color: black !important;
+	}
+
+	.btnPren:focus {
+		box-shadow: none !important;
+	}
+
+	.btnPren:active {
+		transform: translateY(2px) translateX(2px)
+	}
