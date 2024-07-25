@@ -1,25 +1,30 @@
 ﻿@model Project.Models.ViewModels.RicercaPrenotazioneByTipoPensioneViewModel
+<link rel="stylesheet" href="~/css/creazioni.css" />
 
 @{
     ViewData["Title"] = "Ricerca per Tipo Pensione";
 }
 
 <h2>@ViewData["Title"]</h2>
+<div class="container">
 
 <form id="searchByTipoPensioneForm" method="post" asp-action="RicercaByTipoPensione">
     @Html.AntiForgeryToken()
-    <div class="form-group">
-        <label asp-for="TipoPensione" class="control-label">Tipo di Pensione:</label>
-        <select asp-for="TipoPensione" class="form-control">
+    <div class="form-group d-flex flex-column align-items-center">
+        <label asp-for="TipoPensione" class="control-label text-center fs-2">Tipo di Pensione:</label>
+        <select asp-for="TipoPensione" class=" fs-2">
             <option  value="">Seleziona un tipo di pensione</option>
             <option value="Prima Colazione">Prima Colazione</option>
             <option value="Pensione Completa">Pensione Completa</option>
             <option value="Mezza Pensione">Mezza Pensione</option>
         </select>
-        <span asp-validation-for="TipoPensione" class="text-danger"></span>
+        <span asp-validation-for="TipoPensione" class="text-danger fw-bold"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Cerca</button>
+    <div class="centerbtn">
+    <button type="submit" class="btns btn-primary">Cerca</button>
+    </div>
 </form>
+</div>
 
 @section Scripts {
     @{

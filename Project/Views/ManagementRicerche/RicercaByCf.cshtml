@@ -1,19 +1,24 @@
 ﻿@model Project.Models.ViewModels.RicercaPrenotazioneByCFViewModel
+<link rel="stylesheet" href="~/css/creazioni.css" />
 @{
     ViewData["Title"] = "Cerca Prenotazioni";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2>@ViewData["Title"]</h2>
+<div class="container">
 
 <form id="searchByCFForm" method="post" action="@Url.Action("RicercaByCF", "ManagementRicerche")">
     @Html.AntiForgeryToken()
-    <div class="form-group">
-        <label asp-for="codiceFiscale" class="control-label">Codice Fiscale</label>
-        <input asp-for="codiceFiscale" class="form-control" />
-        <span asp-validation-for="codiceFiscale" class="text-danger"></span>
+    <div class="form-group d-flex flex-column align-items-center">
+        <label asp-for="codiceFiscale" class="control-label text-center fs-2">Codice Fiscale</label>
+        <input asp-for="codiceFiscale" class="form-control fs-2" />
+        <span asp-validation-for="codiceFiscale" class="text-danger fw-bold"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Cerca</button>
+    <div class="centerbtn">
+    <button type="submit" class="btns btn-primary">Cerca</button>
+    </div>
 </form>
+</div>
 
 @section Scripts {
     @{

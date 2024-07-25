@@ -19,6 +19,7 @@
 
 html {
 	font-size: 14px;
+	
 }
 
 @media (min-width: 768px) {
@@ -39,8 +40,10 @@ html {
 body {
 	margin-bottom: 60px;
 	background-color: #ffab5e;
-	
-	
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 a, a:hover {
@@ -162,4 +165,61 @@ div > span > a:hover {
         transform: translateX(0%);
         opacity: 1;
     }
+}
+
+.text-dar {
+	color: #23425f !important;
+	font-size: 1.5em;
+	
+}
+.text-dar:hover{
+    color: #a64942 !important;
+}
+nav {
+	background-color: #ffab5e !important;
+
+}
+.bb{
+	    border-bottom: 2px solid #23425f;
+
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 18px;
+	text-align: left;
+	background-color: #ff7844; /* Table background color */
+	color: #23425f; /* Main text color */
+	border: 1px solid #23425f; /* Border color */
+}
+
+thead tr {
+	background-color: #23425f; /* Header background color */
+	color: #ffffff; /* Header text color */
+	font-size: 1.5em;
+	position: sticky;
+	top: 0;
+	z-index: 1; /* Ensure header stays above the other table rows */
+}
+
+th,
+td {
+	padding: 12px 15px;
+	border: 1px solid #23425f; /* Border color for cells */
+	font-size:1.3em;
+
+}
+
+tbody tr:hover {
+	background-color: #a64942; /* Hover color for the row */
+	color: #ffffff; /* Text color on hover */
+}
+
+h2{
+	color:  #23425f !important;
+    font-weight:bold !important;
+    text-align: center;
+    font-size:3em;
 }

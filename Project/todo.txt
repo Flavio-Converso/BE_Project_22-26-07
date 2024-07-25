@@ -80,15 +80,18 @@ todo 24/07:
 
 todo 25/07:
 -form aggiunta serviziAgg alla prenotazione esistente (authorize) @@@@@@@@@FATTO@@@@@@@@@ 
--styling pagina home + navbar 
--styling pagina routing ("Management")
--styling pagina creazioni
--sistema di checkout / stampa dettagli prenotazione (authorize)
+-styling pagina home  @@@@@@@@@FATTO@@@@@@@@@ 
+-styling pagina routing ("Management")  @@@@@@@@@FATTO@@@@@@@@@ 
+-styling pagina creazioni @@@@@@@@@FATTO@@@@@@@@@ 
+-styling navbar 
 
 
 todo 26/07:
+-sistema di checkout / stampa dettagli prenotazione (authorize)
+-immagine logo navbar
 -immagine logo footer
 -placeholder nel footer
+
 
 todo extra: 
 -cryptaggio password												    @@@@@@@@@FATTO@@@@@@@@@ 

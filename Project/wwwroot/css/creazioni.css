@@ -1,0 +1,72 @@
+/* color palette
+	.first-color { 
+	background: #23425f; 
+}
+	
+.second-color { 
+	background: #a64942; 
+}
+
+.third-color { 
+	background: #ff7844; 
+}
+
+.fourth-color { 
+	background: #ffab5e; 
+}
+}*/
+
+h2{
+	color:  #23425f !important;
+    font-weight:bold !important;
+	text-align: center;
+	font-size:3em;
+}
+label {
+	padding-top: 10px;
+	color: #23425f !important;
+	font-weight: bold !important;
+	font-size:1.2em;
+}
+input,select{
+	width:30%;
+	border-radius: 40px !important;
+    background-color: lemonchiffon !important;
+    color: #23425f !important;
+    font-weight: 400 !important;
+}
+	select{
+		width:60% !important;
+		padding-left:15px !important;
+	}
+	.form-control:focus {
+		border-color: #a64942;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+	}
+
+.btns {
+	margin-top:15px;
+	background-color: #23425f !important;
+	border-color: #a64942 !important;
+	color: lemonchiffon;
+	padding:25px 50px;
+	font-size:1.6em;
+	border-radius: 40px !important;
+}
+
+	.btns:hover {
+		background-color: #a64942 !important;
+		border-color: #a64942 !important;
+		color: black !important;
+	}
+
+	.btns:focus {
+		box-shadow: none !important;
+	}
+
+	.btns:active {
+		transform: scale(1.1)
+	}
+	.centerbtn{
+		        text-align: center !important;
+	}

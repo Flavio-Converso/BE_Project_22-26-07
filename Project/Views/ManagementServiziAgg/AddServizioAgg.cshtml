@@ -1,11 +1,14 @@
 ﻿@model Project.Models.ViewModels.AddServizioAggViewModel
-
+<link rel="stylesheet" href="~/css/creazioni.css" />
 @{
     ViewData["Title"] = "Aggiungi Servizio Aggiuntivo";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2>@ViewData["Title"]</h2>
 @* todo: da cambiare dinamicamente...  *@
+<div class="container">
+
+
 <form asp-action="AddServizioAgg" method="post">
     <div class="form-group">
         <label asp-for="IdServizioAgg" class="control-label">Servizio Aggiuntivo</label>
@@ -16,35 +19,36 @@
             <option value="4">Letto aggiuntivo</option>
             <option value="5">Culla</option>
         </select>
-        <span asp-validation-for="IdServizioAgg" class="text-danger"></span>
+        <span asp-validation-for="IdServizioAgg" class="text-danger fw-bold"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Data" class="control-label"></label>
         <input asp-for="Data" class="form-control" type="date" />
-        <span asp-validation-for="Data" class="text-danger"></span>
+        <span asp-validation-for="Data" class="text-danger fw-bold"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Quantita" class="control-label"></label>
         <input asp-for="Quantita" class="form-control" />
-        <span asp-validation-for="Quantita" class="text-danger"></span>
+        <span asp-validation-for="Quantita" class="text-danger fw-bold"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Prezzo" class="control-label">Prezzo (x quantità)</label>
         <input asp-for="Prezzo" class="form-control" />
-        <span asp-validation-for="Prezzo" class="text-danger"></span>
+        <span asp-validation-for="Prezzo" class="text-danger fw-bold"></span>
     </div>
 
     <input type="hidden" asp-for="IdPrenotazione" />
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Aggiungi Servizio</button>
-        <a asp-action="VisualizzaPrenotazioni" class="btn btn-secondary">Indietro</a>
+    <div class="form-group centerbtn">
+        <button type="submit" class="btns btn-primary">Aggiungi Servizio</button>
+        
     </div>
 </form>
-
+</div>
+<a asp-action="VisualizzaPrenotazioni" class="btn btn-secondary">Indietro</a>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

@@ -1,10 +1,11 @@
 ﻿@model Project.Models.Persona
-
+<link rel="stylesheet" href="~/css/creazioni.css" />
 @{
     ViewData["Title"] = "Crea Persona";
 }
 
 <h2>Crea Persona</h2>
+<div class="container">
 
 <form asp-action="CreazionePersona" method="post">
     @Html.AntiForgeryToken()
@@ -12,37 +13,37 @@
     <div class="form-group">
         <label asp-for="Nome" class="control-label"></label>
         <input asp-for="Nome" class="form-control" />
-        <span asp-validation-for="Nome" class="text-danger"></span>
+            <span asp-validation-for="Nome" class="text-danger fw-bold"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Cognome" class="control-label"></label>
         <input asp-for="Cognome" class="form-control" />
-        <span asp-validation-for="Cognome" class="text-danger"></span>
+            <span asp-validation-for="Cognome" class="text-danger fw-bold"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="CF" class="control-label"></label>
         <input asp-for="CF" class="form-control" />
-        <span asp-validation-for="CF" class="text-danger"></span>
+            <span asp-validation-for="CF" class="text-danger fw-bold"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Email" class="control-label"></label>
         <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
+            <span asp-validation-for="Email" class="text-danger fw-bold"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Telefono" class="control-label"></label>
         <input asp-for="Telefono" class="form-control" />
-        <span asp-validation-for="Telefono" class="text-danger"></span>
+            <span asp-validation-for="Telefono" class="text-danger fw-bold"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Cellulare" class="control-label"></label>
         <input asp-for="Cellulare" class="form-control" />
-        <span asp-validation-for="Cellulare" class="text-danger"></span>
+            <span asp-validation-for="Cellulare" class="text-danger fw-bold"></span>
     </div>
 
     <div class="form-group">
@@ -54,11 +55,13 @@
     <div class="form-group">
         <label asp-for="Provincia" class="control-label"></label>
         <input asp-for="Provincia" class="form-control" />
-        <span asp-validation-for="Provincia" class="text-danger"></span>
+            <span asp-validation-for="Provincia" class="text-danger fw-bold"></span>
     </div>
-
-    <button type="submit" class="btn btn-primary">Crea</button>
+        <div class="centerbtn">
+    <button type="submit" class="btns btn-primary">Crea</button>
+    </div>
 </form>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

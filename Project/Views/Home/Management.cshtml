@@ -1,10 +1,28 @@
-﻿<div>
-    <a class="nav-link text-dark" asp-area="" asp-controller="ManagementCreazioni" asp-action="CreazioneCamera">Creazione Camera</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="ManagementVisualizzazioni" asp-action="VisualizzaCamere">Visualizza Camere</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="ManagementCreazioni" asp-action="CreazionePersona">Creazione Persona</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="ManagementVisualizzazioni" asp-action="VisualizzaPersone">Visualizza Persone</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="ManagementCreazioni" asp-action="CreazionePrenotazione">Creazione Prenotazione</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="ManagementVisualizzazioni" asp-action="VisualizzaPrenotazioni">Visualizza Prenotazioni</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="ManagementRicerche" asp-action="RicercaByCF">Ricerca by CF</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="ManagementRicerche" asp-action="RicercaByTipoPensione">Ricerca by Tipo Pensione</a>
+﻿<link rel="stylesheet" href="~/css/management.css" />
+<div class="container text-center d-flex flex-column align-items-center">
+    <h2>Cosa vuoi fare?</h2>
+   <div class="row">
+    <div class="col-5">
+        <h3>Camere</h3>
+        <a class="rout nav-link text-dark" asp-area="" asp-controller="ManagementCreazioni" asp-action="CreazioneCamera">Creazione Camera</a>
+        <a class="rout nav-link text-dark" asp-area="" asp-controller="ManagementVisualizzazioni" asp-action="VisualizzaCamere">Visualizza Camere</a>
+    </div>
+   <div class="col-5 ">
+       <h3>Persone</h3>
+        <a class="rout nav-link text-dark" asp-area="" asp-controller="ManagementCreazioni" asp-action="CreazionePersona">Creazione Persona</a>
+        <a class="rout nav-link text-dark" asp-area="" asp-controller="ManagementVisualizzazioni" asp-action="VisualizzaPersone">Visualizza Persone</a>
+   </div>
+   <div class="col-5">
+       <h3 class="">Prenotazioni</h3>
+    <a class="rout nav-link text-dark" asp-area="" asp-controller="ManagementCreazioni" asp-action="CreazionePrenotazione">Creazione Prenotazione</a>
+    <a class="rout nav-link text-dark" asp-area="" asp-controller="ManagementVisualizzazioni" asp-action="VisualizzaPrenotazioni">Visualizza Prenotazioni</a>
+   </div>
+    <div class="col-5">
+        <h3 class="">Ricerche</h3>
+    <a class="rout nav-link text-dark" asp-area="" asp-controller="ManagementRicerche" asp-action="RicercaByCF">Ricerca by CF</a>
+    <a class="rout nav-link text-dark" asp-area="" asp-controller="ManagementRicerche" asp-action="RicercaByTipoPensione">Ricerca by Tipo Pensione</a>
+    </div>
+   </div>
+
+ 
 </div>

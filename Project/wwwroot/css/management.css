@@ -1,0 +1,53 @@
+﻿.rout {
+    border-radius: 40px !important;
+    background-color: #ffab5e !important;
+    color: #6b1004 !important;
+    font-weight: 400 !important;
+    margin-top: 15px;
+    width: auto;
+    font-size: 1.6em;
+    border: 2px solid #23425f;
+}
+
+.rout:hover{
+    /*scale*/
+    transform: scale(1.1);
+}
+    .rout:active {
+        transform: scale(1.3)
+    }
+    h2,h3{
+        color: #23425f !important;
+        font-weight:bold;
+    }
+    h2{
+        font-size:3em;
+    }
+    h3{
+        font-size:2em;
+    }
+
+.col-5 {
+    background-color: #ff7844;
+    border: 2px solid #23425f;
+    margin: 15px;
+    padding:25px 15px;
+}
+
+/* color palette
+	.first-color { 
+	background: #23425f; 
+}
+	
+.second-color { 
+	background: #a64942; 
+}
+
+.third-color { 
+	background: #ff7844; 
+}
+
+.fourth-color { 
+	background: #ffab5e; 
+}
+}*/
