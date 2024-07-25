@@ -80,10 +80,10 @@ todo 24/07:
 
 todo 25/07:
 -form aggiunta serviziAgg alla prenotazione esistente (authorize) @@@@@@@@@FATTO@@@@@@@@@ 
--sistema di checkout / stampa dettagli prenotazione (authorize)
 -styling pagina home + navbar 
 -styling pagina routing ("Management")
 -styling pagina creazioni
+-sistema di checkout / stampa dettagli prenotazione (authorize)
 
 
 todo 26/07:

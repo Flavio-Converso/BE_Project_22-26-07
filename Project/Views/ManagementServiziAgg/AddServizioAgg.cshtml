@@ -8,7 +8,7 @@
 @* todo: da cambiare dinamicamente...  *@
 <form asp-action="AddServizioAgg" method="post">
     <div class="form-group">
-        <label asp-for="IdServizioAgg" class="control-label"></label>
+        <label asp-for="IdServizioAgg" class="control-label">Servizio Aggiuntivo</label>
         <select asp-for="IdServizioAgg" class="form-control">        
             <option value="1">Colazione in camera</option>
             <option value="2">Mini bar</option>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Prezzo" class="control-label"></label>
+        <label asp-for="Prezzo" class="control-label">Prezzo (x quantità)</label>
         <input asp-for="Prezzo" class="form-control" />
         <span asp-validation-for="Prezzo" class="text-danger"></span>
     </div>
