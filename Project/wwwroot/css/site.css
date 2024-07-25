@@ -47,10 +47,10 @@ a, a:hover {
     text-decoration: none !important;
     color: inherit !important;
 }
-.footer {
+.foote {
 	line-height: 40px !important;
 }
-.footer {
+.foote {
 	border-top: 2px solid #23425f;
 	padding-top:15px
 }
@@ -58,6 +58,13 @@ a, a:hover {
 	    color: #23425f !important;
 
 
+}
+.col-xs-2>h5{
+	font-size:1.4em;
+}
+div > span > a {
+	font-size:1em;
+    color: #23425f !important;
 }
 div > span > a:hover {
 		color: #a64942 !important;
@@ -69,6 +76,90 @@ div > span > a:hover {
 	border-bottom: 1px solid #23425f;
 	margin-bottom:20px
 }
-footer{
-	height: 10%;
+
+
+
+/*index*/
+#title{
+	    color: #23425f;
+    font-size: 3em;
+}
+.home-text{
+	color: #23425f;
+    font-size: 1.5em;
+	flex-wrap:wrap;
+}
+
+
+.btnP {
+	background-color: #23425f !important;
+	border-color: #a64942 !important;
+	color: lemonchiffon;
+	width:50%;
+
+}
+
+	.btnP:hover {
+		background-color: #a64942 !important;
+		border-color: #a64942 !important;
+		color: black !important;
+	}
+
+	.btnP:focus {
+		box-shadow: none !important;
+	}
+
+	.btnP:active {
+		transform: translateY(2px) translateX(2px)
+	}
+
+#tr1 {
+	
+	opacity: 0; /* Start invisible */
+	animation: slideDown 1s ease-out forwards; 
+}
+
+@keyframes slideDown {
+	0% {
+		transform: translateY(-100%); 
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+#tr2 {
+	opacity: 0; 
+	animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+	0% {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+}
+
+#tr3{
+	    opacity: 0; 
+    animation: slideLeft 1s ease-out forwards;
+
+}
+@keyframes slideLeft{
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
 }
