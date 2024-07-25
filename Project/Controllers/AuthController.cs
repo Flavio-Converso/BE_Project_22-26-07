@@ -17,14 +17,11 @@ namespace Project.Controllers
             _authService = authService;
             _logger = logger;
         }
-
-        // GET: /Account/Register
         public IActionResult Register()
         {
             return View();
         }
 
-        // POST: /Account/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(AuthViewModel model)
@@ -63,13 +60,11 @@ namespace Project.Controllers
         }
 
 
-        // GET: /Account/Login
         public IActionResult Login()
         {
             return View();
         }
 
-        // POST: /Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(AuthViewModel model)
@@ -109,7 +104,6 @@ namespace Project.Controllers
 
 
 
-        // GET: /Account/Logout
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

@@ -18,13 +18,11 @@ namespace Project.Controllers.Management
         }
 
 
-        // GET: /Manage/Create
         public IActionResult CreazionePersona()
         {
             return View();
         }
 
-        // POST: /Manage/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreazionePersona(Persona persona)
@@ -48,13 +46,11 @@ namespace Project.Controllers.Management
         }
 
 
-        // GET: /Manage/CreazioneCamera
         public IActionResult CreazioneCamera()
         {
             return View();
         }
 
-        // POST: /Manage/CreazioneCamera
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreazioneCamera(Camera camera)
@@ -77,13 +73,11 @@ namespace Project.Controllers.Management
             }
         }
 
-        // GET: /Manage/CreazionePrenotazione
         public IActionResult CreazionePrenotazione()
         {
             return View();
         }
 
-        // POST: /Manage/CreazionePrenotazione
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreazionePrenotazione(Prenotazione prenotazione)

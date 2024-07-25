@@ -9,7 +9,6 @@ public abstract class BaseService
         _connectionString = connectionString;
     }
 
-    // Metodo sincrono esistente
     protected T ExecuteScalar<T>(string commandText, Action<SqlCommand> parameterAction = null)
     {
         using (var connection = new SqlConnection(_connectionString))
@@ -22,8 +21,6 @@ public abstract class BaseService
             }
         }
     }
-
-    // Metodo sincrono esistente
     protected List<T> ExecuteReader<T>(string commandText, Action<SqlCommand> parameterAction, Func<SqlDataReader, T>? readAction)
     {
         var result = new List<T>();
