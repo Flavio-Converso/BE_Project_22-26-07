@@ -9,7 +9,13 @@
 <form asp-action="AddServizioAgg" method="post">
     <div class="form-group">
         <label asp-for="IdServizioAgg" class="control-label"></label>
-        <input asp-for="IdServizioAgg" class="form-control" />
+        <select asp-for="IdServizioAgg" class="form-control">        
+            <option value="1">Colazione in camera</option>
+            <option value="2">Mini bar</option>
+            <option value="3">Internet</option>
+            <option value="4">Letto aggiuntivo</option>
+            <option value="5">Culla</option>
+        </select>
         <span asp-validation-for="IdServizioAgg" class="text-danger"></span>
     </div>
 
@@ -42,5 +48,6 @@
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
     }
 }
