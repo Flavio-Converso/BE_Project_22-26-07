@@ -90,7 +90,7 @@ namespace Project.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model); // Re-render the view with validation messages
+                return View(model);
             }
 
             try
@@ -104,12 +104,11 @@ namespace Project.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Nessuna prenotazione trovata per il tipo di pensione selezionato.");
-                    return View(model); // Re-render the view with error message
+                    return View(model);
                 }
             }
             catch (Exception ex)
             {
-                // Log the exception (not shown here) and return a 500 error status
                 return StatusCode(500, "Errore interno del server. Si prega di riprovare più tardi.");
             }
         }
@@ -120,7 +119,7 @@ namespace Project.Controllers
         {
             if (string.IsNullOrWhiteSpace(tipoPensione))
             {
-                return RedirectToAction("RicercaByTipoPensione"); // Redirect to search view if no type is specified
+                return RedirectToAction("RicercaByTipoPensione");
             }
 
             try
@@ -132,11 +131,10 @@ namespace Project.Controllers
                     ViewBag.Message = "Nessuna prenotazione trovata per il tipo di pensione selezionato.";
                 }
 
-                return View(prenotazioni); // Display the results
+                return View(prenotazioni);
             }
             catch (Exception ex)
             {
-                // Log the exception (not shown here) and return a 500 error status
                 return StatusCode(500, "Errore interno del server. Si prega di riprovare più tardi.");
             }
         }
