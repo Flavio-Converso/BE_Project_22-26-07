@@ -25,7 +25,8 @@ builder.Services
     .AddScoped<IAuthService, AuthService>()
     .AddScoped<ICreazioneService, CreazioneService>()
     .AddScoped<IVisualizzaCreazioniService, VisualizzaCreazioniService>()
-    .AddScoped<IRicercheService, RicercheService>();
+    .AddScoped<IRicercheService, RicercheService>()
+    .AddScoped<IAddServiziAgg, AddServiziAgg>();
 
 var app = builder.Build();
 

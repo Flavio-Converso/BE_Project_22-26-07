@@ -20,6 +20,7 @@
             <th>TipoPensione</th>
             <th>IdPersona</th>
             <th>IdCamera</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +38,10 @@
                 <td>@prenotazione.TipoPensione</td>
                 <td>@prenotazione.IdPersona</td>
                 <td>@prenotazione.IdCamera</td>
+
+                <td>
+                    <a asp-controller="ManagementServiziAgg" asp-action="AddServizioAgg" asp-route-idPrenotazione="@prenotazione.IdPrenotazione" class="btn btn-info">Aggiungi servizi aggiuntivi</a>
+                </td>
             </tr>
         }
     </tbody>

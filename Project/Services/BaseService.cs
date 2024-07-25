@@ -63,4 +63,17 @@ public abstract class BaseService
         }
         return result;
     }
+
+    protected void ExecuteNonQuery(string commandText, Action<SqlCommand> parameterAction = null)
+    {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            connection.Open();
+            using (var command = new SqlCommand(commandText, connection))
+            {
+                parameterAction?.Invoke(command);
+                command.ExecuteNonQuery();
+            }
+        }
+    }
 }

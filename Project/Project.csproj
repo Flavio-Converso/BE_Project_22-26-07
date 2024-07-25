@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ServicesModels\" />
     <Folder Include="SQL\Queries\" />
     <Folder Include="SQL\Tables\" />
     <Folder Include="wwwroot\images\" />
