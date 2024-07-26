@@ -1,6 +1,6 @@
 ﻿@model Project.Models.ViewModels.CheckoutViewModel
 
-<h1>Checkout Details</h1>
+<h2>Checkout Details</h2>
 
 <table class="table">
     <thead>
@@ -35,3 +35,9 @@
         </option>
     }
 </select>
+
+<!-- Centered Importo da Saldare -->
+<div style="text-align: center; margin-top: 20px;">
+    <h2>Importo da Saldare</h2>
+    <h3>@Model.ImportoDaSaldare.ToString("C")</h3>
+</div>

@@ -56,7 +56,6 @@ GROUP BY
 
             try
             {
-                // Get reservation and room details
                 var stanzaDetails = await ExecuteReaderAsync<StanzaViewModel>(
                     GET_STANZA_PERIODO_TARIFFA,
                     cmd => cmd.Parameters.AddWithValue("@Id", idPrenotazione),
@@ -78,7 +77,6 @@ GROUP BY
                     model.Caparra = stanzaDetails.First().Caparra;
                 }
 
-                // Get additional services
                 var serviziAgg = await ExecuteReaderAsync<ServizioAggViewModel>(
                     GET_SERVIZI_BY_PRENOTAZIONE,
                     cmd => cmd.Parameters.AddWithValue("@Id", idPrenotazione),
@@ -92,7 +90,6 @@ GROUP BY
 
                 model.ServiziAgg = serviziAgg;
 
-                // Get total amount due
                 model.ImportoDaSaldare = await ExecuteScalarAsync<decimal>(
                     GET_IMPORTO,
                     cmd => cmd.Parameters.AddWithValue("@Id", idPrenotazione));
@@ -101,7 +98,7 @@ GROUP BY
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Errore durante il recupero dei dettagli di prenotazione per ID {IdPrenotazione}", idPrenotazione);
-                throw; // Re-throw the exception to be handled by the caller or middleware
+                throw;
             }
 
             return model;
