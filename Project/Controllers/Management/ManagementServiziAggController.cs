@@ -16,7 +16,6 @@ namespace Project.Controllers.Management
             _addServiziAggService = addServiziAggService;
         }
 
-        // GET: ManagementServiziAgg/AddServiziAgg
         public IActionResult AddServizioAgg(int idPrenotazione)
         {
             ViewBag.serviziAgg = _addServiziAggService.GetServiziAgg();
@@ -27,7 +26,6 @@ namespace Project.Controllers.Management
             return View(viewModel);
         }
 
-        // POST: ManagementServiziAgg/AddServizioAgg
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddServizioAgg(AddServizioAggViewModel model)
@@ -51,7 +49,7 @@ namespace Project.Controllers.Management
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("", "Errore durante l'aggiunta del servizio aggiuntivo.");
-                    // Log the exception if needed
+
                 }
             }
 

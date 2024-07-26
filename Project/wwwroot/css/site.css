@@ -1,20 +1,4 @@
-/* color palette
-	.first-color { 
-	background: #23425f; 
-}
-	
-.second-color { 
-	background: #a64942; 
-}
 
-.third-color { 
-	background: #ff7844; 
-}
-
-.fourth-color { 
-	background: #ffab5e; 
-}
-}*/
 
 * {
 	font-family: "Concert One", sans-serif;
@@ -120,7 +104,7 @@ div > span > a:hover {
 
 #tr1 {
 	
-	opacity: 0; /* Start invisible */
+	opacity: 0; 
 	animation: slideDown 1s ease-out forwards; 
 }
 

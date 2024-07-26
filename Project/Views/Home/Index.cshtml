@@ -1,12 +1,11 @@
 ﻿@{
-    // Generate the image URLs dynamically
     var imageUrls = new List<string>();
     var captions = new List<(string Title, string Description)>
     {
         ("First slide label", "Some representative placeholder content for the first slide."),
         ("Second slide label", "Some representative placeholder content for the second slide."),
         ("Third slide label", "Some representative placeholder content for the third slide."),
-        // Add more captions as needed
+      
     };
 
     for (var t = 1; t <= captions.Count; t++)
@@ -16,7 +15,6 @@
 }
 
 @{
-    // Generate the image URLs dynamically
     var imageUrlssm = new List<string>();
     for (var t = 1; t <= 6; t++)
     {
@@ -81,9 +79,5 @@
              src="@Url.Content(url)"
              alt="Alternate Text" />
     }
-
-
-
-
 
 </div>

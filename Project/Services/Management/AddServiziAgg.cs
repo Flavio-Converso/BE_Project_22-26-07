@@ -6,7 +6,6 @@ namespace Project.Services.Management
     {
         private readonly ILogger<AddServiziAgg> _logger;
 
-        // SQL command for inserting a new record
         private const string ADD_SERVIZI_AGG_COMMAND = @"
             INSERT INTO PrenotazioniServiziAgg
             (IdPrenotazione, IdServizioAgg, Data, Quantita, Prezzo) 
@@ -22,7 +21,6 @@ namespace Project.Services.Management
         {
             try
             {
-                // Execute the SQL command with parameters
                 ExecuteNonQuery(
                     ADD_SERVIZI_AGG_COMMAND,
                     command =>
@@ -34,7 +32,6 @@ namespace Project.Services.Management
                         command.Parameters.AddWithValue("@Prezzo", prenotazioneServizioAgg.Prezzo);
                     });
 
-                // Return the added record
                 return prenotazioneServizioAgg;
             }
             catch (Exception ex)
@@ -48,7 +45,6 @@ namespace Project.Services.Management
         {
             try
             {
-                // Use ExecuteReader from BaseService
                 return ExecuteReader(GET_SERVIZIAGG, null, reader => new ServizioAgg
                 {
                     IdServizioAgg = reader.GetInt32(0),

@@ -97,13 +97,10 @@ namespace Project.Services.Management
         {
             try
             {
-                // Imposta la DataPrenotazione alla data e ora correnti
                 prenotazione.DataPrenotazione = DateTime.Now;
 
-                // Calcola l'anno in base alla DataPrenotazione o SoggiornoDal
                 prenotazione.Anno = prenotazione.SoggiornoDal.Year;
 
-                // Ottieni il prossimo numero progressivo
                 int nextNumProgressivo;
                 using (var connection = new SqlConnection(_connectionString))
                 {
@@ -113,7 +110,6 @@ namespace Project.Services.Management
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@Anno", prenotazione.Anno);
 
-                        // Aggiungi un parametro di output per ottenere il valore del numero progressivo
                         var outputParam = new SqlParameter("@NextNumProgressivo", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
@@ -127,7 +123,6 @@ namespace Project.Services.Management
 
                 prenotazione.NumProgressivo = nextNumProgressivo;
 
-                // Inserisci la prenotazione nel database
                 var prenotazioneId = ExecuteScalar<int>(CREAZIONE_PRENOTAZIONE_COMMAND, command =>
                 {
                     command.Parameters.AddWithValue("@DataPrenotazione", prenotazione.DataPrenotazione);
@@ -138,7 +133,6 @@ namespace Project.Services.Management
                     command.Parameters.AddWithValue("@Caparra", prenotazione.Caparra);
                     command.Parameters.AddWithValue("@Tariffa", prenotazione.Tariffa);
 
-                    // Converti l'enum in stringa per il parametro TipoPensione
                     command.Parameters.AddWithValue("@TipoPensione", prenotazione.TipoPensione.ToString() ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@IdPersona", prenotazione.IdPersona);
                     command.Parameters.AddWithValue("@IdCamera", prenotazione.IdCamera);
