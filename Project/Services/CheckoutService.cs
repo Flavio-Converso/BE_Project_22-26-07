@@ -5,35 +5,44 @@ namespace Project.Services
     public class CheckoutService : BaseService, ICheckoutService
     {
         private readonly ILogger<CheckoutService> _logger;
+        private const string GET_STANZA_PERIODO_TARIFFA = @"
+    SELECT 
+    C.NumeroCamera, 
+    P.SoggiornoDal, 
+    P.SoggiornoAl, 
+    P.Tariffa,
+    P.Caparra
+FROM 
+    Prenotazioni AS P 
+INNER JOIN 
+    Camere AS C ON P.IdCamera = C.IdCamera 
+WHERE 
+    P.IdPrenotazione = @Id";
 
-        private const string GET_PRENOTAZIONE_CON_IMPORTO_DA_SALDARE_COMMAND = @"
-        SELECT 
-            p.IdPrenotazione,
-            c.NumeroCamera,
-            p.SoggiornoDal,
-            p.SoggiornoAl,
-            p.Tariffa,
-            p.Caparra,
-            sa.Descrizione AS ServizioAggiuntivo,
-            psa.Data AS DataServizio,
-            psa.Quantita,
-            psa.Prezzo,
-            (p.Tariffa - p.Caparra + COALESCE(SUM(psa.Prezzo * psa.Quantita), 0)) AS ImportoDaSaldare
-        FROM 
-            Prenotazioni p
-        JOIN 
-            Camere c ON p.IdCamera = c.IdCamera
-        LEFT JOIN 
-            PrenotazioniServiziAgg psa ON p.IdPrenotazione = psa.IdPrenotazione
-        LEFT JOIN 
-            ServiziAgg sa ON psa.IdServizioAgg = sa.IdServizioAgg
-        WHERE 
-            p.IdPrenotazione = @IdPrenotazione
-        GROUP BY 
-            p.IdPrenotazione, c.NumeroCamera, p.SoggiornoDal, p.SoggiornoAl, 
-            p.Tariffa, p.Caparra, sa.Descrizione, psa.Data, psa.Quantita, psa.Prezzo
-        ORDER BY 
-            p.IdPrenotazione;";
+        private const string GET_SERVIZI_BY_PRENOTAZIONE = @"
+    SELECT 
+    S.Descrizione, 
+    PS.Data, 
+    PS.Quantita, 
+    PS.Prezzo 
+FROM 
+    ServiziAgg AS S 
+INNER JOIN 
+    PrenotazioniServiziAgg AS PS ON S.IdServizioAgg = PS.IdServizioAgg 
+WHERE 
+    PS.IdPrenotazione = @Id";
+
+        private const string GET_IMPORTO = @"
+    SELECT 
+    (p.Tariffa - p.Caparra + ISNULL(SUM(ps.Quantita * ps.Prezzo), 0)) AS ServizioPrezzo 
+FROM 
+    Prenotazioni AS p 
+LEFT JOIN 
+    PrenotazioniServiziAgg AS ps ON p.IdPrenotazione = ps.IdPrenotazione 
+WHERE 
+    p.IdPrenotazione = @Id 
+GROUP BY 
+    p.Tariffa, p.Caparra";
 
         public CheckoutService(IConfiguration configuration, ILogger<CheckoutService> logger)
             : base(configuration.GetConnectionString("DB"))
@@ -43,51 +52,62 @@ namespace Project.Services
 
         public async Task<CheckoutViewModel> GetPrenotazioneConImportoDaSaldare(int idPrenotazione)
         {
-            var prenotazione = new CheckoutViewModel();
+            var model = new CheckoutViewModel();
 
             try
             {
-                await ExecuteReaderAsync(GET_PRENOTAZIONE_CON_IMPORTO_DA_SALDARE_COMMAND,
-                    command => command.Parameters.AddWithValue("@IdPrenotazione", idPrenotazione),
-                    reader =>
+                // Get reservation and room details
+                var stanzaDetails = await ExecuteReaderAsync<StanzaViewModel>(
+                    GET_STANZA_PERIODO_TARIFFA,
+                    cmd => cmd.Parameters.AddWithValue("@Id", idPrenotazione),
+                    reader => new StanzaViewModel
                     {
-                        if (!reader.HasRows) return null;
-
-                        prenotazione.IdPrenotazione = reader.GetInt32(reader.GetOrdinal("IdPrenotazione"));
-                        prenotazione.NumeroCamera = reader.GetInt32(reader.GetOrdinal("NumeroCamera"));
-                        prenotazione.SoggiornoDal = reader.GetDateTime(reader.GetOrdinal("SoggiornoDal"));
-                        prenotazione.SoggiornoAl = reader.GetDateTime(reader.GetOrdinal("SoggiornoAl"));
-                        prenotazione.Tariffa = reader.GetDecimal(reader.GetOrdinal("Tariffa"));
-                        prenotazione.Caparra = reader.GetDecimal(reader.GetOrdinal("Caparra"));
-                        prenotazione.ImportoDaSaldare = reader.GetDecimal(reader.GetOrdinal("ImportoDaSaldare"));
-
-                        if (!reader.IsDBNull(reader.GetOrdinal("ServizioAggiuntivo")))
-                        {
-                            var servizio = new ServizioAggViewModel
-                            {
-                                ServizioAgg = reader.GetString(reader.GetOrdinal("ServizioAggiuntivo")),
-                                DataServizio = reader.IsDBNull(reader.GetOrdinal("DataServizio")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("DataServizio")),
-                                Quantita = reader.IsDBNull(reader.GetOrdinal("Quantita")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("Quantita")),
-                                Prezzo = reader.IsDBNull(reader.GetOrdinal("Prezzo")) ? (decimal?)null : reader.GetDecimal(reader.GetOrdinal("Prezzo"))
-                            };
-
-                            prenotazione.ServiziAgg.Add(servizio);
-                        }
-
-                        return prenotazione;
+                        NumeroCamera = reader.GetInt32(reader.GetOrdinal("NumeroCamera")),
+                        SoggiornoDal = reader.GetDateTime(reader.GetOrdinal("SoggiornoDal")),
+                        SoggiornoAl = reader.GetDateTime(reader.GetOrdinal("SoggiornoAl")),
+                        Tariffa = reader.GetDecimal(reader.GetOrdinal("Tariffa")),
+                        Caparra = reader.GetDecimal(reader.GetOrdinal("Caparra"))
                     });
 
-                if (prenotazione.ServiziAgg.Count == 0)
+                if (stanzaDetails.Any())
                 {
-                    _logger.LogInformation("No additional services found for reservation ID {IdPrenotazione}", idPrenotazione);
+                    model.NumeroCamera = stanzaDetails.First().NumeroCamera;
+                    model.SoggiornoDal = stanzaDetails.First().SoggiornoDal;
+                    model.SoggiornoAl = stanzaDetails.First().SoggiornoAl;
+                    model.Tariffa = stanzaDetails.First().Tariffa;
+                    model.Caparra = stanzaDetails.First().Caparra;
                 }
+
+                // Get additional services
+                var serviziAgg = await ExecuteReaderAsync<ServizioAggViewModel>(
+                    GET_SERVIZI_BY_PRENOTAZIONE,
+                    cmd => cmd.Parameters.AddWithValue("@Id", idPrenotazione),
+                    reader => new ServizioAggViewModel
+                    {
+                        ServizioAgg = reader.GetString(reader.GetOrdinal("Descrizione")),
+                        DataServizio = reader.IsDBNull(reader.GetOrdinal("Data")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("Data")),
+                        Quantita = reader.IsDBNull(reader.GetOrdinal("Quantita")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("Quantita")),
+                        Prezzo = reader.IsDBNull(reader.GetOrdinal("Prezzo")) ? (decimal?)null : reader.GetDecimal(reader.GetOrdinal("Prezzo"))
+                    });
+
+                model.ServiziAgg = serviziAgg;
+
+                // Get total amount due
+                model.ImportoDaSaldare = await ExecuteScalarAsync<decimal>(
+                    GET_IMPORTO,
+                    cmd => cmd.Parameters.AddWithValue("@Id", idPrenotazione));
+
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving reservation with outstanding amount for ID {IdPrenotazione}", idPrenotazione);
+                _logger.LogError(ex, "Errore durante il recupero dei dettagli di prenotazione per ID {IdPrenotazione}", idPrenotazione);
+                throw; // Re-throw the exception to be handled by the caller or middleware
             }
 
-            return prenotazione;
+            return model;
         }
+
+
     }
+
 }

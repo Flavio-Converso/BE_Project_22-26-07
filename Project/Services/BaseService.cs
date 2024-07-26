@@ -76,4 +76,18 @@ public abstract class BaseService
             }
         }
     }
+
+    protected async Task<T> ExecuteScalarAsync<T>(string commandText, Action<SqlCommand> parameterAction = null)
+    {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            await connection.OpenAsync();
+            using (var command = new SqlCommand(commandText, connection))
+            {
+                parameterAction?.Invoke(command);
+                return (T)await command.ExecuteScalarAsync();
+            }
+        }
+    }
+
 }

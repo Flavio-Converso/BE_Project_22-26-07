@@ -21,4 +21,13 @@
         public int? Quantita { get; set; }
         public decimal? Prezzo { get; set; }
     }
+    public class StanzaViewModel
+    {
+        public int NumeroCamera { get; set; }
+        public DateTime SoggiornoDal { get; set; }
+        public DateTime SoggiornoAl { get; set; }
+        public decimal Tariffa { get; set; }
+        public decimal Caparra { get; set; }
+    }
+
 }
