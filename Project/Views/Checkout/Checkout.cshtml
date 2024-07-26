@@ -6,65 +6,43 @@
 
 <h2>Checkout Details</h2>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Reservation ID</th>
-            <th>Room Number</th>
-            <th>Stay From</th>
-            <th>Stay To</th>
-            <th>Rate</th>
-            <th>Deposit</th>
-            <th>Amount Due</th>
-            <th>Additional Services</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.IdPrenotazione</td>
-            <td>@Model.NumeroCamera</td>
-            <td>@Model.SoggiornoDal.ToShortDateString()</td>
-            <td>@Model.SoggiornoAl.ToShortDateString()</td>
-            <td>@Model.Tariffa.ToString("C")</td>
-            <td>@Model.Caparra.ToString("C")</td>
-            <td>@Model.ImportoDaSaldare.ToString("C")</td>
-            <td>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        View Services
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        @if (Model.ServiziAgg != null && Model.ServiziAgg.Any())
-                        {
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Description</th>
-                                        <th>Date</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var servizio in Model.ServiziAgg)
-                                    {
-                                        <tr>
-                                            <td>@servizio.ServizioAgg</td>
-                                            <td>@servizio.DataServizio?.ToShortDateString()</td>
-                                            <td>@servizio.Quantita</td>
-                                            <td>@servizio.Prezzo?.ToString("C")</td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        }
-                        else
-                        {
-                            <p class="dropdown-item">No additional services found for this reservation.</p>
-                        }
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div>
+    <h3>Reservation Details</h3>
+    <p><strong>Reservation ID:</strong> @Model.IdPrenotazione</p>
+    <p><strong>Room Number:</strong> @Model.NumeroCamera</p>
+    <p><strong>Stay From:</strong> @Model.SoggiornoDal.ToShortDateString()</p>
+    <p><strong>Stay To:</strong> @Model.SoggiornoAl.ToShortDateString()</p>
+    <p><strong>Rate:</strong> @Model.Tariffa.ToString("C")</p>
+    <p><strong>Deposit:</strong> @Model.Caparra.ToString("C")</p>
+    <p><strong>Amount Due:</strong> @Model.ImportoDaSaldare.ToString("C")</p>
+
+    <h3>Additional Services</h3>
+    @if (Model.ServiziAgg != null && Model.ServiziAgg.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var servizio in Model.ServiziAgg)
+                {
+                    <tr>
+                        <td>@servizio.ServizioAgg</td>
+                        <td>@servizio.DataServizio?.ToShortDateString()</td>
+                        <td>@servizio.Quantita</td>
+                        <td>@servizio.Prezzo?.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No additional services found for this reservation.</p>
+    }
+</div>
