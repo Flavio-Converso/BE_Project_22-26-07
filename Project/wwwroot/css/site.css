@@ -190,37 +190,33 @@ table {
 	margin: 25px 0;
 	font-size: 18px;
 	text-align: left;
-	background-color: #ff7844; /* Table background color */
-	color: #23425f; /* Main text color */
-	border: 1px solid #23425f; /* Border color */
+	background-color: #ff7844; 
+	color: #23425f; 
+	border: 1px solid #23425f; 
 }
 
-thead tr {
-	background-color: #23425f; /* Header background color */
-	color: #ffffff; /* Header text color */
+thead > tr {
+	background-color: #23425f;
+	color: #ffffff; 
 	font-size: 1.5em;
-	position: sticky;
-	top: 0;
-	z-index: 1; /* Ensure header stays above the other table rows */
 }
 
 th,
 td {
 	padding: 12px 15px;
-	border: 1px solid #23425f; /* Border color for cells */
+	border: 1px solid #23425f; 
 	font-size:1.3em;
 
 }
 
 tbody tr:hover {
-	background-color: #a64942; /* Hover color for the row */
-	color: #ffffff; /* Text color on hover */
+	background-color: #a64942; 
+	color: #ffffff; 
 }
 
 .table-container {
-	overflow-x: auto; /* Enables horizontal scrolling */
+	overflow-x: auto; 
 	margin: 20px;
-	border: 1px solid #23425f; /* Border color for container */
 }
 h2{
 	color:  #23425f !important;

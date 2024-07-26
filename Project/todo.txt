@@ -83,7 +83,7 @@ todo 25/07:
 -styling pagina home  @@@@@@@@@FATTO@@@@@@@@@ 
 -styling pagina routing ("Management")  @@@@@@@@@FATTO@@@@@@@@@ 
 -styling pagina creazioni @@@@@@@@@FATTO@@@@@@@@@ 
--styling navbar 
+-styling navbar  @@@@@@@@@FATTO@@@@@@@@@ 
 
 
 todo 26/07:

@@ -48,7 +48,7 @@
     </div>
 </form>
 </div>
-<a asp-action="VisualizzaPrenotazioni" class="btn btn-secondary">Indietro</a>
+<a asp-controller="ManagementVisualizzazioni" asp-action="VisualizzaPrenotazioni" class="btn btn-secondary">Indietro</a>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
