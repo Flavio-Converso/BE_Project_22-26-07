@@ -10,7 +10,6 @@
         public decimal Caparra { get; set; }
         public decimal ImportoDaSaldare { get; set; }
 
-        // Collection to store additional services
         public List<ServizioAggViewModel> ServiziAgg { get; set; } = new List<ServizioAggViewModel>();
     }
 

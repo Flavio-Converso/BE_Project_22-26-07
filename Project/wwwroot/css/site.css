@@ -16,7 +16,9 @@
 }
 }*/
 
-
+* {
+	font-family: "Concert One", sans-serif;
+}
 html {
 	font-size: 14px;
 	
@@ -249,3 +251,16 @@ h3 {
 	.btnPren:active {
 		transform: translateY(2px) translateX(2px)
 	}
+
+#totSaldare {
+	width:50%;
+	text-align: center;
+	margin-top: 40px;
+	border: 2px solid #000;
+	border-radius: 10px;
+	padding: 20px;
+	background-color: #ff7844;
+}
+.btn-secondary{
+	margin-top:50px;
+}

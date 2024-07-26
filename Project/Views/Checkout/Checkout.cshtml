@@ -1,6 +1,6 @@
 ﻿@model Project.Models.ViewModels.CheckoutViewModel
 
-<h2>Checkout Details</h2>
+<h2>Dettagli Prenotazione</h2>
 
 <table class="table">
     <thead>
@@ -10,7 +10,6 @@
             <th>Soggiorno Al</th>
             <th>Tariffa</th>
             <th>Caparra</th>
-            <th>Importo da Saldare</th>
         </tr>
     </thead>
     <tbody>
@@ -20,24 +19,37 @@
             <td>@Model.SoggiornoAl.ToShortDateString()</td>
             <td>@Model.Tariffa.ToString("C")</td>
             <td>@Model.Caparra.ToString("C")</td>
-            <td>@Model.ImportoDaSaldare.ToString("C")</td>
         </tr>
     </tbody>
 </table>
 
-<h2>Additional Services</h2>
-<select id="additionalServicesDropdown">
-    @foreach (var servizio in Model.ServiziAgg)
-    {
-        <option readonly value="@servizio.ServizioAgg">
-            @servizio.ServizioAgg - @servizio.Quantita x
-            @(servizio.Prezzo.HasValue ? servizio.Prezzo.Value.ToString("C") : "N/A")
-        </option>
-    }
-</select>
+<h2 style="margin-top:40px">Dettagli Servizi Aggiuntivi</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Descrizione Servizio</th>
+            <th>Quantità</th>
+            <th>Prezzo per Unità</th>
+            <th>Prezzo Totale</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var servizio in Model.ServiziAgg)
+        {
+            <tr>
+                <td>@servizio.ServizioAgg</td>
+                <td>@servizio.Quantita</td>
+                <td>@(servizio.Prezzo.HasValue ? servizio.Prezzo.Value.ToString("C") : "N/D")</td>
+                <td>@(servizio.Quantita.HasValue && servizio.Prezzo.HasValue ? (servizio.Quantita.Value * servizio.Prezzo.Value).ToString("C") : "N/D")</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-<!-- Centered Importo da Saldare -->
-<div style="text-align: center; margin-top: 20px;">
+<div class="d-flex justify-content-center">
+<div  id="totSaldare">
     <h2>Importo da Saldare</h2>
-    <h3>@Model.ImportoDaSaldare.ToString("C")</h3>
+    <h3 class="fs-1">@Model.ImportoDaSaldare.ToString("C")</h3>
 </div>
+</div>
+<a asp-controller="Home" asp-action="Management" class="btn btn-secondary">Indietro</a>

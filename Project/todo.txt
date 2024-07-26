@@ -87,8 +87,7 @@ todo 25/07:
 
 
 todo 26/07:
--sistema di checkout / stampa dettagli prenotazione (authorize)
--styling pagina checkout
+-sistema di checkout / stampa dettagli prenotazione (authorize)  @@@@@@@@@FATTO@@@@@@@@@ 
 -immagine logo navbar
 -immagine logo footer
 -placeholder nel footer
