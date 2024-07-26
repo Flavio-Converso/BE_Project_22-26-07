@@ -30,6 +30,7 @@ body {
 	min-height: 100vh;
 	flex-direction: column;
 	justify-content: space-between;
+	overflow-x:hidden;
 }
 
 a, a:hover {
@@ -106,6 +107,7 @@ div > span > a:hover {
 	
 	opacity: 0; 
 	animation: slideDown 1s ease-out forwards; 
+	overflow:hidden;
 }
 
 @keyframes slideDown {
@@ -120,8 +122,9 @@ div > span > a:hover {
 	}
 }
 #tr2 {
-	opacity: 0; 
+	opacity: 0;
 	animation: slideUp 1s ease-out forwards;
+	overflow: hidden;
 }
 
 @keyframes slideUp {
@@ -136,10 +139,10 @@ div > span > a:hover {
 	}
 }
 
-#tr3{
-	    opacity: 0; 
-    animation: slideLeft 1s ease-out forwards;
-
+#tr3 {
+	opacity: 0;
+	animation: slideLeft 1s ease-out forwards;
+	overflow: hidden;
 }
 @keyframes slideLeft{
     0% {

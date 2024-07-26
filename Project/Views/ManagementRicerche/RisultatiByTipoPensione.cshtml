@@ -2,48 +2,52 @@
 
 @{
     ViewData["Title"] = "Risultati per Tipo Pensione";
+    int prenotazioniCount = Model?.Count ?? 0;
 }
 
 <h2>Risultati per Tipo Pensione</h2>
 
 @if (Model != null && Model.Any())
 {
-     <div class="table-container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id Prenotazione</th>
-                <th>Data Prenotazione</th>
-                <th>Num Progressivo</th>
-                <th>Anno</th>
-                <th>Soggiorno Dal</th>
-                <th>Soggiorno Al</th>
-                <th>Caparra</th>
-                <th>Tariffa</th>
-                <th>Tipo Pensione</th>
-                <th>Id Persona</th>
-                <th>Id Camera</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var prenotazione in Model)
-            {
+    <div class="ms-5 mt-2 mb-0 fs-3">
+        <p class="mb-0">Trovate @prenotazioniCount prenotazioni.</p>
+    </div>
+    <div class="table-container">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@prenotazione.IdPrenotazione</td>
-                    <td>@prenotazione.DataPrenotazione</td>
-                    <td>@prenotazione.NumProgressivo</td>
-                    <td>@prenotazione.Anno</td>
-                    <td>@prenotazione.SoggiornoDal</td>
-                    <td>@prenotazione.SoggiornoAl</td>
-                    <td>@prenotazione.Caparra</td>
-                    <td>@prenotazione.Tariffa</td>
-                    <td>@prenotazione.TipoPensione</td>
-                    <td>@prenotazione.IdPersona</td>
-                    <td>@prenotazione.IdCamera</td>
+                    <th>Id Prenotazione</th>
+                    <th>Data Prenotazione</th>
+                    <th>Num Progressivo</th>
+                    <th>Anno</th>
+                    <th>Soggiorno Dal</th>
+                    <th>Soggiorno Al</th>
+                    <th>Caparra</th>
+                    <th>Tariffa</th>
+                    <th>Tipo Pensione</th>
+                    <th>Id Persona</th>
+                    <th>Id Camera</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var prenotazione in Model)
+                {
+                    <tr>
+                        <td>@prenotazione.IdPrenotazione</td>
+                        <td>@prenotazione.DataPrenotazione</td>
+                        <td>@prenotazione.NumProgressivo</td>
+                        <td>@prenotazione.Anno</td>
+                        <td>@prenotazione.SoggiornoDal</td>
+                        <td>@prenotazione.SoggiornoAl</td>
+                        <td>@prenotazione.Caparra</td>
+                        <td>@prenotazione.Tariffa</td>
+                        <td>@prenotazione.TipoPensione</td>
+                        <td>@prenotazione.IdPersona</td>
+                        <td>@prenotazione.IdCamera</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
     <a asp-controller="Home" asp-action="Management" class="btn btn-secondary">Indietro</a>
 }
