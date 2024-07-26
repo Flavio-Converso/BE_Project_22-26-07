@@ -1,48 +1,89 @@
 ﻿@{
+    // Generate the image URLs dynamically
+    var imageUrls = new List<string>();
+    var captions = new List<(string Title, string Description)>
+    {
+        ("First slide label", "Some representative placeholder content for the first slide."),
+        ("Second slide label", "Some representative placeholder content for the second slide."),
+        ("Third slide label", "Some representative placeholder content for the third slide."),
+        // Add more captions as needed
+    };
+
+    for (var t = 1; t <= captions.Count; t++)
+    {
+        imageUrls.Add($"~/images/img{t}.jpg");
+    }
+}
+
+@{
+    // Generate the image URLs dynamically
+    var imageUrlssm = new List<string>();
+    for (var t = 1; t <= 6; t++)
+    {
+        imageUrlssm.Add($"~/images/img{t}.jpg");
+    }
+}
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 
-    <div class="row mt-5 border-bottom pb-2">
+<div class="row mt-5 border-bottom pb-2">
     <div id="tr1" class="col-12 col-lg-6 text-center mt-5 mb-5">
-            <h2 id="title" class=" fw-bold mt-5">Welcome on the website!</h2>
-       <div class="text-start px-5 ">
+        <h2 id="title" class=" fw-bold mt-5">Welcome on the website!</h2>
+        <div class="text-start px-5 ">
             <p class="fs-4 home-text mt-5 px-5">Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione.</p>
-       </div>
+        </div>
         <button class="btnP btn-Primary p-2 mt-0 mt-lg-4 fs-3   ">Prenota anche tu!</button>
+    </div>
+    <div id="tr2" class="col-12 col-lg-6 text-center align-content-center ">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                @for (var i = 0; i < imageUrls.Count; i++)
+                {
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-label="Slide @i+1"></button>
+                }
+            </div>
+            <div class="carousel-inner">
+                @for (var i = 0; i < imageUrls.Count; i++)
+                {
+                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                        <img src="@Url.Content(imageUrls[i])" class="d-block w-100" alt="Slide @i+1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>@captions[i].Title</h5>
+                            <p>@captions[i].Description</p>
+                        </div>
+                    </div>
+                }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div id="tr2" class="col-12 col-lg-6 text-center align-content-center ">
-        <img class="img-fluid " src="https://placehold.co/600" alt="welcomeImg" />
-        </div>
     </div>
-    <div id="tr3" class="row mt-3 d-flex justify-content-center ">
-       <div class="col-12 text-center mb-2">
-       <h3>LOREM IPSUM!</h3>
-       </div>
-    <div class="col-sm-4 pt-sm-2 pt-lg-0 col-md-3 col-lg-2 text-center px-0 mx-0">
-        <img class="img-fluid" src="https://placehold.co/150" alt="Alternate Text" />
-       </div>
-    <div class="col-sm-4 pt-sm-2 pt-lg-0 col-md-3 col-lg-2 text-center px-0 mx-0">
-        <img class="img-fluid" src="https://placehold.co/150" alt="Alternate Text" />
-    </div>
-
-    <div class="col-sm-4 pt-sm-2 pt-lg-0 col-md-3 col-lg-2 text-center px-0 mx-0">
-        <img class="img-fluid" src="https://placehold.co/150" alt="Alternate Text" />
-    </div>
-
-    <div class="col-sm-4 pt-sm-2 pt-lg-0 col-md-3 col-lg-2 text-center px-0 mx-0">
-        <img class="img-fluid" src="https://placehold.co/150" alt="Alternate Text" />
-    </div>
-
-    <div class="col-sm-4 pt-sm-2 pt-lg-0 col-md-3 col-lg-2 text-center px-0 mx-0">
-        <img class="img-fluid" src="https://placehold.co/150" alt="Alternate Text" />
-    </div>
-
-    <div class="col-sm-4 pt-sm-2 pt-lg-0 col-md-3 col-lg-2 text-center px-0 mx-0">
-        <img class="img-fluid" src="https://placehold.co/150" alt="Alternate Text" />
+</div>
+<div id="tr3" class="row mt-3 d-flex justify-content-center ">
+    <div class="col-12 text-center mb-2">
+        <h3>LOREM IPSUM!</h3>
     </div>
 
 
-   
-     
-    </div>
+    @foreach (var url in imageUrlssm)
+    {
+        <img class="col-sm-4 pt-sm-2 pt-lg-0 col-md-3 col-lg-2 px-2 mx-auto img-fluid"
+             src="@Url.Content(url)"
+             alt="Alternate Text" />
+    }
+
+
+
+
+
+</div>
