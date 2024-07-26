@@ -11,7 +11,7 @@ namespace Project.Services.Management
             INSERT INTO PrenotazioniServiziAgg
             (IdPrenotazione, IdServizioAgg, Data, Quantita, Prezzo) 
             VALUES (@IdPrenotazione, @IdServizioAgg, @Data, @Quantita, @Prezzo)";
-
+        private const string GET_SERVIZIAGG = "SELECT * FROM ServiziAgg";
         public AddServiziAgg(IConfiguration configuration, ILogger<AddServiziAgg> logger)
             : base(configuration.GetConnectionString("DB"))
         {
@@ -41,6 +41,24 @@ namespace Project.Services.Management
             {
                 _logger.LogError(ex, "Errore durante l'aggiunta di un servizio aggiuntivo.");
                 throw new Exception("Si è verificato un errore inatteso. Riprova più tardi.");
+            }
+        }
+
+        public List<ServizioAgg> GetServiziAgg()
+        {
+            try
+            {
+                // Use ExecuteReader from BaseService
+                return ExecuteReader(GET_SERVIZIAGG, null, reader => new ServizioAgg
+                {
+                    IdServizioAgg = reader.GetInt32(0),
+                    Descrizione = reader.GetString(1),
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Errore durante il recupero dei servizi aggiuntivi.");
+                return null;
             }
         }
     }

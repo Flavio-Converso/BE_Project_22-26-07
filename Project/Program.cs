@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Project.Services;
 using Project.Services.Auth;
 using Project.Services.Management;
 
@@ -26,7 +27,8 @@ builder.Services
     .AddScoped<ICreazioneService, CreazioneService>()
     .AddScoped<IVisualizzaCreazioniService, VisualizzaCreazioniService>()
     .AddScoped<IRicercheService, RicercheService>()
-    .AddScoped<IAddServiziAgg, AddServiziAgg>();
+    .AddScoped<IAddServiziAgg, AddServiziAgg>()
+    .AddScoped<ICheckoutService, CheckoutService>();
 
 var app = builder.Build();
 

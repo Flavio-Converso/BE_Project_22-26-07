@@ -19,6 +19,7 @@ namespace Project.Controllers.Management
         // GET: ManagementServiziAgg/AddServiziAgg
         public IActionResult AddServizioAgg(int idPrenotazione)
         {
+            ViewBag.serviziAgg = _addServiziAggService.GetServiziAgg();
             var viewModel = new AddServizioAggViewModel
             {
                 IdPrenotazione = idPrenotazione

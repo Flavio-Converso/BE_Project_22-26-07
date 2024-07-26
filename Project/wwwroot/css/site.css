@@ -204,9 +204,10 @@ thead > tr {
 th,
 td {
 	padding: 12px 15px;
-	border: 1px solid #23425f; 
-	font-size:1.3em;
-
+	border: 1px solid #23425f;
+	font-size: 1.3em;
+	text-align: center;
+	align-content:center;
 }
 
 tbody tr:hover {
@@ -225,7 +226,10 @@ h2{
     font-size:3em;
 }
 
-
+h3 {
+	color: #23425f !important;
+	font-weight: bold !important;
+}
 .btnPren {
 	background-color: #23425f !important;
 	border-color: #a64942 !important;

@@ -21,6 +21,7 @@
             <th>IdPersona</th>
             <th>IdCamera</th>
             <th>Actions</th>
+            <th>Checkout</th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +42,9 @@
 
                 <td>
                         <a asp-controller="ManagementServiziAgg" asp-action="AddServizioAgg" asp-route-idPrenotazione="@prenotazione.IdPrenotazione" class="btn btnPren btn-primary">Aggiungi servizi aggiuntivi</a>
+                </td>
+                <td>
+                        <a class="btn btnPren btn-primary" asp-controller="Checkout" asp-action="Checkout" asp-route-idPrenotazione="@prenotazione.IdPrenotazione">Vai al checkout</a>
                 </td>
             </tr>
         }

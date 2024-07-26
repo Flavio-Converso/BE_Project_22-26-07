@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="~/css/creazioni.css" />
 @{
     ViewData["Title"] = "Aggiungi Servizio Aggiuntivo";
+    var serviziAgg = ViewBag.serviziAgg as List<ServizioAgg>;
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -12,12 +13,13 @@
 <form asp-action="AddServizioAgg" method="post">
     <div class="form-group">
         <label asp-for="IdServizioAgg" class="control-label">Servizio Aggiuntivo</label>
-        <select asp-for="IdServizioAgg" class="form-control">        
-            <option value="1">Colazione in camera</option>
-            <option value="2">Mini bar</option>
-            <option value="3">Internet</option>
-            <option value="4">Letto aggiuntivo</option>
-            <option value="5">Culla</option>
+        <select asp-for="IdServizioAgg" class="form-control">
+                <option value="">Seleziona un servizio</option>
+                @foreach (var s in serviziAgg)
+                {
+                    <option value="@s.IdServizioAgg">@s.Descrizione</option>
+                }
+   
         </select>
         <span asp-validation-for="IdServizioAgg" class="text-danger fw-bold"></span>
     </div>
